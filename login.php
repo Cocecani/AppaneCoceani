@@ -13,13 +13,14 @@
         <h1>Appane</h1>
     </div>
     <div class="main-content">
+    <form action="login.php" method="post">
         <h1>Login</h1>
-        <form action="login.php" method="post">
-            <input type="email" name="email" placeholder="mario.rossi@gmail.com">
-            <input type="password" name="password" placeholder="Password">
-            <input type="submit" value="Login">
-        </form>
-    </div>
+        <input type="email" name="email" placeholder="mario.rossi@gmail.com">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Login">
+        <a href="registrazione.php" class="register-btn">Registrati</a>
+    </form>
+</div>
 </body>
 
 </html>

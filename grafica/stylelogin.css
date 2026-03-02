@@ -1,34 +1,98 @@
-@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@300;400;500;600&display=swap");
 
 body {
   margin: 0;
   background-color: #fffefe;
-  font-family: "Kaushan Script", cursive;
-  font-weight: 200;
-  font-style: normal;
+  font-family: "Poppins", sans-serif;
 }
 
+/* ===== TOPBAR ===== */
 .topbar {
   height: 110px;
   background: #d6923f;
   display: flex;
+  align-items: center;
   padding: 0 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .topbar .logo {
-  margin: auto 0;
-  height: 105px;
+  height: 90px;
 }
 
 .topbar h1 {
   margin: 0 auto;
   color: #fdf9ce;
-  font-size: 70px;
+  font-family: "Kaushan Script", cursive;
+  font-size: 60px;
+}
 
-  
+/* ===== CONTENUTO PRINCIPALE ===== */
+.main-content {
+  height: calc(100vh - 110px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CARD LOGIN */
+.main-content form {
+  background: white;
+  padding: 40px;
+  width: 350px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
 }
 
 .main-content h1 {
   text-align: center;
-  font-size: 40px;
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #181818;
+  font-family: "Kaushan Script", cursive;
+}
+
+/* INPUT */
+form input[type="email"],
+form input[type="password"] {
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  border-color: #d6923f;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(214, 146, 63, 0.2);
+}
+
+form a{
+  color: #181818;
+  font-family: "Kaushan Script", cursive;
+  font-size: 15px;
+}
+
+/* BOTTONE */
+form input[type="submit"] {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #d6923f;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form input[type="submit"]:hover {
+  background-color: #c17f2f;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
