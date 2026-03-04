@@ -1,7 +1,9 @@
 |  Elemento   |  Colore   |
 |-------------|-----------|
-|     BG      | #fffefe |
-| primo piano | #d6923f |
-|    testo    | #fdf9ce |
-| testo extra | #181818 |
+|     BG      | #ffffff |
+|     BG2     | #fabfc1 |
+|     BTN     | #e4788e |
+| txt on pink | #ffffff |
+|   welcome   | #e4788e |
+
 
