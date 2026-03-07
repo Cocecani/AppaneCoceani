@@ -1,19 +1,31 @@
 <?php
 session_start();
 
-require('db.php');
-include('header.php');
+require('includes/db.php');
+include('includes/header.php');
 
 $popup = $_GET['popup'] ?? null;
-switch ($popup){
-    case 'succ':
+switch ($popup) {
+    case 'registrationSuccess':
         echo "<script>alert('Registrazione avvenuta con successo!')</script>";
         break;
+    case 'loginSuccess':
+        echo "<script>alert('Login avvenuto con successo!')</script>";
+        break;
     case 'mailDupe':
-        echo "<script>alert('Email già in uso, prova a loggarti o usa un\'altra email!')</script>";
+        echo "<script>alert('Email già in uso, prova a loggarti o usa un\\'altra email!')</script>";
         break;
     case 'fail':
-        echo "<script>alert('Si è verificato un errore durante la registrazione, riprova più tardi!')</script>";
+        echo "<script>alert('Si è verificato un errore, riprova più tardi!')</script>";
+        break;
+    case 'noUser':
+        echo "<script>alert('Utente con questa mail non esiste, provane un altra')</script>";
+        break;
+    case 'wrongPassword':
+        echo "<script>alert('Password non corretta!')</script>";
+        break;
+    case 'logout_success':
+        echo "<script>alert('Logout avvenuto con successo!')</script>";
         break;
 }
 

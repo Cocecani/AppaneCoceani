@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Construction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a2e;
+            color: #fff;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hard-hat {
+            font-size: 100px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to   { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 20px 0 10px;
+            color: #f5a623;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #aaa;
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .progress-label {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            width: 400px;
+            max-width: 90vw;
+            height: 24px;
+            background: #2e2e4e;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #444;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #f5a623, #f53);
+            border-radius: 20px;
+            animation: fill 4s ease-out forwards;
+        }
+
+        @keyframes fill {
+            0%   { width: 0%; }
+            60%  { width: 75%; }
+            80%  { width: 76%; }
+            100% { width: 76%; }
+        }
+
+        .progress-text {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #f5a623;
+        }
+
+        .excuse {
+            margin-top: 40px;
+            font-size: 1rem;
+            color: #ccc;
+            background: #2e2e4e;
+            padding: 14px 24px;
+            border-radius: 12px;
+            border-left: 4px solid #f5a623;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .excuse span {
+            color: #f5a623;
+            font-weight: bold;
+        }
+
+        .refresh {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .worker {
+            position: absolute;
+            bottom: 20px;
+            font-size: 2rem;
+            animation: walk 6s linear infinite;
+        }
+
+        @keyframes walk {
+            from { left: -80px; }
+            to   { left: 110%; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hard-hat">👷</div>
+    <h1>Under Construction</h1>
+    <p class="subtitle">Our dev is working really hard.<br>Or at least that's what he told us.</p>
+
+    <p class="progress-label">Loading progress...</p>
+    <div class="progress-bar">
+        <div class="progress-fill"></div>
+    </div>
+    <p class="progress-text">76%... and stuck here since Tuesday.</p>
+
+    <div class="excuse">
+        Today's excuse: <span id="excuse"></span>
+    </div>
+
+    <p class="refresh">Refresh for a new excuse 🔄</p>
+
+    <div class="worker">🚧🧱👷‍♂️</div>
+
+    <script>
+        const excuses = [
+            "the coffee machine broke and nothing around here works without coffee.",
+            "we accidentally deleted the internet. oops.",
+            "the designer said 'just one more change'. that was 3 weeks ago.",
+            "we're waiting for the CSS to stop being weird.",
+            "a rubber duck told us the code was fine. it lied.",
+            "we updated npm and now everything is on fire. 🔥",
+            "the intern pushed to main. we don't talk about it.",
+            "we're in a meeting about why there are too many meetings.",
+            "Stack Overflow is down so development has halted globally.",
+            "we're still arguing about tabs vs spaces."
+        ];
+
+        document.getElementById('excuse').textContent =
+            excuses[Math.floor(Math.random() * excuses.length)];
+    </script>
+
+</body>
+</html>
