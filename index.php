@@ -4,15 +4,35 @@ session_start();
 require('db.php');
 include('header.php');
 
-function creaProd($nome, $ingredienti, $quantita, $prezzo)
+$popup = $_GET['popup'] ?? null;
+switch ($popup){
+    case 'succ':
+        echo "<script>alert('Registrazione avvenuta con successo!')</script>";
+        break;
+    case 'mailDupe':
+        echo "<script>alert('Email già in uso, prova a loggarti o usa un\'altra email!')</script>";
+        break;
+    case 'fail':
+        echo "<script>alert('Si è verificato un errore durante la registrazione, riprova più tardi!')</script>";
+        break;
+}
+
+function creaProd($id, $nome, $ingredienti, $prezzo)
 {
     // ingredienti is expected to be an array; join with commas for display
     $string_ingredienti = implode(', ', $ingredienti);
     return "<div class='prodotto'>
                 <h2>$nome</h2>
                 <p>$string_ingredienti</p>
-                <p>$quantita</p>
                 <p>€$prezzo</p>
+                <div class='counter'>
+                    <button class='counter-btn' onclick='decrement($id)'>-</button>
+                    <span class='counter-value' id=$id>1</span>
+                    <button class='counter-btn' onclick='increment($id)'>+</button>
+                    <button class='cart-btn' onclick='addToCart()'>
+                        <img src='grafica/img/cart.png' alt='Add to cart' class='cart-icon' />
+                    </button>
+                </div>
             </div>";
 }
 
@@ -27,6 +47,7 @@ function creaProd($nome, $ingredienti, $quantita, $prezzo)
 </head>
 
 <body>
+    <script src="js.js"></script>
     <div class="welcomeText">
         <h2>Benvenuto a il panificio di cui non potrai fare ammeno</h2>
     </div>
@@ -39,7 +60,7 @@ function creaProd($nome, $ingredienti, $quantita, $prezzo)
 
             if ($resultMenu->num_rows > 0) {
                 while ($rowMenu = $resultMenu->fetch_assoc()) {
-                    $stmtProd = $conn->prepare("SELECT nome, prezzo, quantità FROM tprodotto WHERE id = ?");
+                    $stmtProd = $conn->prepare("SELECT nome, prezzo FROM tprodotto WHERE id = ?");
                     $stmtProd->bind_param("i", $rowMenu["idprodotto"]);
                     $stmtProd->execute();
                     $resultProd = $stmtProd->get_result();
@@ -53,7 +74,7 @@ function creaProd($nome, $ingredienti, $quantita, $prezzo)
                             while ($rowI = $resultI->fetch_assoc()) {
                                 $ingredienti[] = $rowI['ingrediente'];
                             }
-                            echo creaProd($rowProd["nome"], $ingredienti, $rowProd["quantità"], $rowProd["prezzo"]);
+                            echo creaProd($rowMenu["idprodotto"], $rowProd["nome"], $ingredienti,  $rowProd["prezzo"]);
                         }
                     }
                 }
@@ -61,8 +82,8 @@ function creaProd($nome, $ingredienti, $quantita, $prezzo)
                 echo '<p> Non ci sono prodotti disponibili per l\'acquisto fino a giovedì</p>';
             }
 
-/*
-            $sql = "SELECT id, nome, prezzo, quantità FROM tprodotto";
+            /*
+            $sql = "SELECT id, nome, prezzo, FROM tprodotto";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -86,6 +107,7 @@ function creaProd($nome, $ingredienti, $quantita, $prezzo)
         </div>
 
     </div>
+
 
 </body>
 
