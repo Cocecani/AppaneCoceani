@@ -7,8 +7,8 @@ require('includes/utils.php');
 //appane@appane.com
 //adminAppane
 
-$email = trim($_POST['email']);
-$psw = ($_POST['password']);
+$email = trim($_SESSION['email']);
+$psw = ($_SESSION['password']);
 
 //controllo se esiste l'utente
 $sql = "SELECT idutente, nome, password, email FROM `tutente` WHERE email = ?";
@@ -19,18 +19,23 @@ $result = $stmt->get_result();
 
 if ($result && $result->num_rows > 0) {
         $user = $result->fetch_assoc();
-        
+        echo $email;
+        echo $psw;
+        echo $user['password']."<br>";
+        echo password_hash("1234", PASSWORD_DEFAULT)."<br>";
+        echo password_hash("appane", PASSWORD_DEFAULT)."<br>";
         // Verifica la password con password_verify
         if (password_verify($psw, $user['password'])) {
                 $_SESSION['user_id'] = $user['idutente'];
                 $_SESSION['nome'] = $user['nome'];
                 $_SESSION['email'] = $user['email'];
-                redirect("/index.php?popup=loginSuccess");
+                $_SESSION["password"]=null;
+                redirect("index.php?popup=loginSuccess");
         } else {
-                redirect("/FRONT/login.php?popup=wrongPassword");
+                redirect("FRONT/login.php?popup=wrongPassword");
         }
     
 } else {
-        redirect("/FRONT/login.php?popup=noUser");
+        redirect("FRONT/login.php?popup=noUser");
 }
 
