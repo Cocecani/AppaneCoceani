@@ -11,7 +11,7 @@ body {
 /*===HEADER===*/
 
 .topbar {
-  height: 125px;
+  height: 130px;
   background: #fabfc1;
   display: flex;
   justify-content: space-between;
@@ -28,8 +28,21 @@ body {
   font-style: normal;
 }
 
-.topbar .header-icon {
+.topbar .header-icon{
   height: 35px;
+}
+
+.options {
+  height: auto;
+  background: #fabfc1;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 100px;
+  margin-top: 10px;
+}
+
+.options .menu-option{
+  color: white;
 }
 
 /*===MAIN CONTENT===*/
@@ -48,7 +61,7 @@ body {
 /*===PRODOTTO===*/
 
 .prodotto {
-  width: 80%;
+  width: 75%;
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 15px;
@@ -124,7 +137,27 @@ body {
   line-height: 1;
 }
 
-.cart-btn:hover {
+.add-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #e4788e;
+  color: #ffffff;
+  border: none;
+  font-size: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  line-height: 1;
+}
+
+.cart-btn:hover .add-btn:hover{
   background-color: #ce6b7f;
 }
 
