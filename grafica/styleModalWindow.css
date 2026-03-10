@@ -10,25 +10,6 @@ body {
   color:#fff;
 }
 
-/* ===== TOPBAR ===== */
-
-.topbar {
-  height: 130px;
-  background: #fabfc1;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 25px;
-}
-
-.topbar h1 {
-  margin: 0;
-  font-size: 70px;
-  padding: 0 25px;
-  font-family: "Pacifico", cursive;
-  font-weight: 400;
-  font-style: normal;
-}
-
 /* ===== CONTENUTO PRINCIPALE ===== */
 .main-content {
   height: calc(100vh - 110px);
@@ -41,44 +22,33 @@ body {
 .main-content form {
   background: #fabfc1;
   padding: 40px;
-  width: 350px;
+  
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
 }
 
-.main-content h1 {
-  text-align: center;
-  font-size: 32px;
-  margin-top: 0;
-  margin-bottom: 25px;
-}
-
-/* INPUT — tutti i tipi testuali */
-form input[type="email"],
-form input[type="password"],
-form input[type="text"],
-form input[type="tel"] {
+form input {
   padding: 12px 15px;
   margin-bottom: 15px;
   border: 1px solid #fff;
   border-radius: 8px;
   font-size: 14px;
   transition: 0.3s;
+  box-sizing: border-box;
 }
 
-form input[type="email"]:focus,
-form input[type="password"]:focus,
-form input[type="text"]:focus,
-form input[type="tel"]:focus {
+form input:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(214, 146, 63, 0.2);
 }
 
 /* BOTTONI */
-form input[type="submit"] {
-  margin-top: 10px;
+form input[type="submit"], 
+form button,
+form input[type="button"]
+{
   padding: 12px;
   border: none;
   border-radius: 8px;
@@ -93,6 +63,8 @@ form input[type="submit"] {
   font-weight: 700;
   font-style: normal;
 }
+ 
+
 
 form input[type="submit"]:hover {
   background-color: #ce6b7f;
@@ -102,7 +74,6 @@ form input[type="submit"]:hover {
 }
 
 form a {
-  margin-top: 10px;
   padding: 12px;
   border: none;
   border-radius: 8px;
@@ -120,3 +91,44 @@ form a:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
+
+.input-row { 
+    display:flex; 
+    justify-content:space-between; 
+    margin-bottom:10px; 
+}
+
+.input-row select { 
+    flex:1; 
+    margin-right:10px; 
+    padding:2px; 
+    border-radius:8px; 
+    border:none; 
+}
+
+.spaceBetween { 
+    margin-top: 10px;
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center;
+    gap:15px;
+}
+
+#add-ingredient, .input-row button{
+  padding: 5px;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#containerIngredients{
+    max-height: 130px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 5px;
+    padding-bottom: 2px;
+}
+

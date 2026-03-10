@@ -36,7 +36,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
     return "<div class='prodotto' id=$id>
                 <div>
                     <h2>$nome</h2>
-                    <button class='cart-btn' style='float: right;' onclick='openModalWindow($id)'>
+                    <button class='cart-btn' style='float: right;' >
                         <img src='../grafica/img/cart.png' class='cart-icon' />
                     </button>
                 </div>
@@ -57,7 +57,6 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
 </head>
 
 <body>
-    <script src="js.js"></script>
     <div class="welcomeText">
         <h2>Benvenuto a il panificio di cui non potrai fare ammeno</h2>
     </div>
@@ -86,15 +85,24 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
                 echo '<p> Per ora non ci sono prodotti salvati </p>';
             }
 
+
+
             
             ?>
 
-            <button class="add-btn">+</button>
+            
+
+            
         </div>
 
     </div>
+    <button class="add-btn" onclick="openModalAdd()">+</button>
 
+    <div id="modalAdd" class="modal">
 
+    </div>
+
+    <script src="addProduct.js"></script>
 </body>
 
 </html>

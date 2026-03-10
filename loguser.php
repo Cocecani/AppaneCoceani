@@ -19,11 +19,6 @@ $result = $stmt->get_result();
 
 if ($result && $result->num_rows > 0) {
         $user = $result->fetch_assoc();
-        echo $email;
-        echo $psw;
-        echo $user['password']."<br>";
-        echo password_hash("1234", PASSWORD_DEFAULT)."<br>";
-        echo password_hash("appane", PASSWORD_DEFAULT)."<br>";
         // Verifica la password con password_verify
         if (password_verify($psw, $user['password'])) {
                 $_SESSION['user_id'] = $user['idutente'];
