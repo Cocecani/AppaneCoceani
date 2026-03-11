@@ -68,7 +68,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
     </div>
     <button class="add-btn" onclick="openModalAdd()">+</button>
 
-    <div id="modalAdd" class="modal">
+    <div id="modal" class="modal">
 
     </div>
 
