@@ -26,7 +26,7 @@ if ($result && $result->num_rows > 0) {
                 $_SESSION['email'] = $user['email'];
                 $_SESSION["password"]=null;
                 if($user['email']==="admin@appane.it"){
-                        redirect("BACK/managementProducts.php");  
+                        redirect("BACK/managementProducts/managementProducts.php");  
                 }else{
                     redirect("index.php?popup=loginSuccess");    
                 }

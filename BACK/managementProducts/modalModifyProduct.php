@@ -1,5 +1,5 @@
 <?php
-    require('../includes/db.php');
+    require('../../includes/db.php');
 
     $idProd=$_REQUEST['id'];
     $nameProd=null;
@@ -54,7 +54,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../grafica/styleModalWindow.css?v=2">
+    <link rel="stylesheet" href="../../grafica/styleModalWindow.css?v=<?php echo time();?>">
 </head>
 
 <body>
@@ -94,7 +94,7 @@
                 <div class="container">
                     <label>
                         Prezzo del prodotto(€) <br>
-                        <input type="number" name="priceProduct" value="<?php echo $priceProd;?>" step="0.01"  required>
+                        <input type="number" name="priceProduct" value="<?php echo $priceProd;?>" step="0.01" min="0" required>
                     </label>  
                 </div>
                 
@@ -102,7 +102,7 @@
             </div>
             
 
-            <div class="spaceBetween">
+            <div class="spaceBetween buttons">
                 <button type="button" onclick="closeModal()">CANCELLA</button>
                 <button type="submit" name="delete">ELIMINA</button>
                 <button type="submit" name="save">SALVA</button>

@@ -1,18 +1,18 @@
 <?php
 session_start();
 
-require('../includes/db.php');
-include('header.php');
+require('../../includes/db.php');
+include('../header.php');
 
 function creaProd($id, $nome, $ingredienti, $prezzo)
 {
     // ingredienti is expected to be an array; join with commas for display
     $string_ingredienti = implode(', ', $ingredienti);
-    return "<div class='prodotto' id=$id>
+    return "<div class='prodotto'>
                 <div>
                     <h2>$nome</h2>
-                    <button class='cart-btn' style='float: right;' >
-                        <img src='../grafica/img/pen.png' class='cart-icon' />
+                    <button class='cart-btn' style='float: right;' title='Modifica prodotto' onclick='openModalModify($id)'>
+                        <img src='../../grafica/img/pen.png' class='cart-icon' />
                     </button>
                 </div>
                 <p>$string_ingredienti</p>
@@ -28,7 +28,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
 <head>
     <meta charset="utf-8">
     <title>Appane</title>
-    <link rel="stylesheet" href="../grafica/style.css">
+    <link rel="stylesheet" href="../../grafica/style.css?v=<?php echo time();?>">
 </head>
 
 <body>
@@ -66,7 +66,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
         </div>
 
     </div>
-    <button class="add-btn" onclick="openModalAdd()">+</button>
+    <button class="add-btn" title="Aggiungi prodotto" onclick="openModalAdd()">+</button>
 
     <div id="modal" class="modal">
 

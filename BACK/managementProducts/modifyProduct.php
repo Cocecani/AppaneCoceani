@@ -1,8 +1,8 @@
 <?php 
     session_start();
 
-    require('../includes/db.php');
-    require('../includes/utils.php');
+    require('../../includes/db.php');
+    require('../../includes/utils.php');
 
     $idProd=$_REQUEST['id'];
     $name=$_REQUEST["nameProduct"];

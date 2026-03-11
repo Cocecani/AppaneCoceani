@@ -37,9 +37,7 @@
 }
 
 /* BOTTONI */
-.modal form input[type="submit"], 
-.modal form button,
-.modal form input[type="button"]
+.modal form button
 {
   padding: 12px;
   border: none;
@@ -50,7 +48,6 @@
   cursor: pointer;
   transition: 0.3s;
   text-align: center;
-  background-color: #e4788e;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -103,5 +100,9 @@
     overflow-x: hidden;
     padding-right: 5px;
     padding-bottom: 2px;
+}
+
+.modal .buttons button{
+  width: 25%;
 }
 
