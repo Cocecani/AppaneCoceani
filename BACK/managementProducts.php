@@ -4,31 +4,6 @@ session_start();
 require('../includes/db.php');
 include('header.php');
 
-/*$popup = $_GET['popup'] ?? null;
-switch ($popup) {
-    case 'registrationSuccess':
-        echo "<script>alert('Registrazione avvenuta con successo!')</script>";
-        break;
-    case 'loginSuccess':
-        echo "<script>alert('Login avvenuto con successo!')</script>";
-        break;
-    case 'mailDupe':
-        echo "<script>alert('Email già in uso, prova a loggarti o usa un\\'altra email!')</script>";
-        break;
-    case 'fail':
-        echo "<script>alert('Si è verificato un errore, riprova più tardi!')</script>";
-        break;
-    case 'noUser':
-        echo "<script>alert('Utente con questa mail non esiste, provane un altra')</script>";
-        break;
-    case 'wrongPassword':
-        echo "<script>alert('Password non corretta!')</script>";
-        break;
-    case 'logout_success':
-        echo "<script>alert('Logout avvenuto con successo!')</script>";
-        break;
-}*/
-
 function creaProd($id, $nome, $ingredienti, $prezzo)
 {
     // ingredienti is expected to be an array; join with commas for display
@@ -37,7 +12,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
                 <div>
                     <h2>$nome</h2>
                     <button class='cart-btn' style='float: right;' >
-                        <img src='../grafica/img/cart.png' class='cart-icon' />
+                        <img src='../grafica/img/pen.png' class='cart-icon' />
                     </button>
                 </div>
                 <p>$string_ingredienti</p>
@@ -85,12 +60,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
                 echo '<p> Per ora non ci sono prodotti salvati </p>';
             }
 
-
-
-            
             ?>
-
-            
 
             
         </div>
@@ -102,7 +72,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
 
     </div>
 
-    <script src="addProduct.js"></script>
+    <script src="managementProducts.js"></script>
 </body>
 
 </html>

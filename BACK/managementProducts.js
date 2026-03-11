@@ -33,13 +33,26 @@ function openModalAdd(){
   .then(response => response.text())
   .then(data => {
 
-    document.getElementById("modalAdd").innerHTML = data;
-    document.getElementById("modalAdd").style.display = "block";
+    document.getElementById("modal").innerHTML = data;
+    document.getElementById("modal").style.display = "block";
 
   });
 
 }
 
-function closeModalAdd(){
-  document.getElementById("modalAdd").style.display = "none";
+function openModalModify(id){
+
+  fetch("modalModifyProduct.php?id="+id)
+  .then(response => response.text())
+  .then(data => {
+
+    document.getElementById("modal").innerHTML = data;
+    document.getElementById("modal").style.display = "block";
+
+  });
+
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display = "none";
 }

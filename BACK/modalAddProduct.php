@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../grafica/styleModalWindow.css">
+    <link rel="stylesheet" href="../grafica/styleModalWindow.css?v=2">
 </head>
 
 <body>
@@ -53,7 +53,7 @@
             
 
             <div class="spaceBetween">
-                <button type="button" onclick="closeModalAdd()">CANCELLA</button>
+                <button type="button" onclick="closeModal()">CANCELLA</button>
                 <button type="submit">AGGIUNGI</button>
             </div>
             
@@ -61,7 +61,7 @@
 
     </div>
 
-    <script src="addProduct.js"></script>
+    <script src="managementProducts.js"></script>
 </body>
 
 </html>

@@ -1,25 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@700&display=swap');
 
 
-body {
-  margin: 0;
-  background-color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  color:#fff;
-}
-
 /* ===== CONTENUTO PRINCIPALE ===== */
-.main-content {
+.modal .main-content {
   height: calc(100vh - 110px);
   display: flex;
   justify-content: center;
   align-items: center;
+  color:#fff;
 }
 
 /* CARD FORM */
-.main-content form {
+.modal .main-content form {
   background: #fabfc1;
   padding: 40px;
   
@@ -29,7 +21,7 @@ body {
   flex-direction: column;
 }
 
-form input {
+.modal form input {
   padding: 12px 15px;
   margin-bottom: 15px;
   border: 1px solid #fff;
@@ -39,15 +31,15 @@ form input {
   box-sizing: border-box;
 }
 
-form input:focus {
+.modal form input:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(214, 146, 63, 0.2);
 }
 
 /* BOTTONI */
-form input[type="submit"], 
-form button,
-form input[type="button"]
+.modal form input[type="submit"], 
+.modal form button,
+.modal form input[type="button"]
 {
   padding: 12px;
   border: none;
@@ -66,39 +58,20 @@ form input[type="button"]
  
 
 
-form input[type="submit"]:hover {
+.modal form input[type="submit"]:hover {
   background-color: #ce6b7f;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   
 }
 
-form a {
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  background-color: #e4788e;
-  color: #fff;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.3s;
-  text-align: center;
-  text-decoration: none;
-}
-
-form a:hover {
-  background-color: #ce6b7f;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.input-row { 
+.modal .input-row { 
     display:flex; 
     justify-content:space-between; 
     margin-bottom:10px; 
 }
 
-.input-row select { 
+.modal .input-row select { 
     flex:1; 
     margin-right:10px; 
     padding:2px; 
@@ -106,7 +79,7 @@ form a:hover {
     border:none; 
 }
 
-.spaceBetween { 
+.modal .spaceBetween { 
     margin-top: 10px;
     display:flex; 
     justify-content:space-between; 
@@ -114,17 +87,17 @@ form a:hover {
     gap:15px;
 }
 
-#add-ingredient, .input-row button{
+.modal #add-ingredient, .modal .input-row button{
   padding: 5px;
 }
 
-#container{
+.modal #container{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#containerIngredients{
+.modal #containerIngredients{
     max-height: 130px;
     overflow-y: auto;
     overflow-x: hidden;

@@ -14,21 +14,21 @@
     
 
     $stmtProd = $conn->prepare("SELECT nome FROM tprodotto WHERE nome LIKE ?");
-    $stmtProd->bind_param("i", $name);
+    $stmtProd->bind_param("s", $name);
     $stmtProd->execute();
 
     $resultProd = $stmtProd->get_result();
     if ($resultProd->num_rows > 0) {
         echo $resultProd->num_rows."<br>";
         echo $resultProd->fetch_assoc()["nome"];
-       echo "<script>alert('Prodotto con questo nome già esiste')</script>"; 
+        echo "<script>alert('Prodotto con questo nome già esiste')</script>"; 
     }else{
         $stmtProd = $conn->prepare("INSERT INTO `tprodotto`(`nome`, `prezzo`) VALUES (?,?)");
-        $stmtProd->bind_param("ii", $name, $price);
+        $stmtProd->bind_param("ss", $name, $price);
         $stmtProd->execute();
 
         $stmtProd = $conn->prepare("SELECT id FROM tprodotto WHERE nome LIKE?");
-        $stmtProd->bind_param("i", $name);
+        $stmtProd->bind_param("s", $name);
         $stmtProd->execute();
 
         $resultProd = $stmtProd->get_result();
@@ -36,7 +36,7 @@
             $rowProd = $resultProd->fetch_assoc();
             foreach($ingredients as $ingredient){
                 $stmtProd = $conn->prepare("INSERT INTO `tricetta`(`ingrediente`, `idProdotto`) VALUES (?,?)");
-                $stmtProd->bind_param("ii", $ingredient, $rowProd["id"]);
+                $stmtProd->bind_param("ss", $ingredient, $rowProd["id"]);
                 $stmtProd->execute();
             }
 
