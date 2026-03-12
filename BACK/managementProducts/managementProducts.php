@@ -11,7 +11,8 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
     return "<div class='prodotto'>
                 <div>
                     <h2>$nome</h2>
-                    <button class='cart-btn' style='float: right;' title='Modifica prodotto' onclick='openModalModify($id)'>
+                    <button class='cart-btn' style='float: right;' title='Modifica prodotto' 
+                        onclick='openModal(\"modalModifyProduct.php?id=$id\")'>
                         <img src='../../grafica/img/pen.png' class='cart-icon' />
                     </button>
                 </div>
@@ -59,20 +60,19 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
             } else {
                 echo '<p> Per ora non ci sono prodotti salvati </p>';
             }
-
             ?>
 
             
         </div>
 
     </div>
-    <button class="add-btn" title="Aggiungi prodotto" onclick="openModalAdd()">+</button>
+    <button class="add-btn" title="Aggiungi prodotto" onclick="openModal('modalAddProduct.php')">+</button>
 
     <div id="modal" class="modal">
 
     </div>
 
-    <script src="managementProducts.js"></script>
+    <script src="../managementProducts.js"></script>
 </body>
 
 </html>

@@ -18,10 +18,10 @@
 </div>
 
 <div class="options">
-    <a  href="../BACK/managementProducts/managementProducts.php" class="menu-option">Prodotti</a>
-    <a  href="../BACK/managementIngredients/managementIngredients.php" class="menu-option">Ingredienti</a>
-    <a  href="../BACK/managementWeeklyMenu/managementWeeklyMenu.php" class="menu-option">Menu Settimanale</a>
-    <a  href="../BACK/managementOrders/managementOrders.php" class="menu-option">Ordini</a>
-    <a  href="../BACK/managementUsers/managementUsers.php" class="menu-option">Utenti</a>
-    <a  href="../BACK/managementSummary/managementSummary.php" class="menu-option">Riepilogo</a>
+    <a  href="../managementProducts/managementProducts.php" class="menu-option">Prodotti</a>
+    <a  href="../managementIngredients/managementIngredients.php" class="menu-option">Ingredienti</a>
+    <a  href="../managementWeeklyMenu/managementWeeklyMenu.php" class="menu-option">Menu Settimanale</a>
+    <a  href="../managementOrders/managementOrders.php" class="menu-option">Ordini</a>
+    <a  href="../managementUsers/managementUsers.php" class="menu-option">Utenti</a>
+    <a  href="../managementSummary/managementSummary.php" class="menu-option">Riepilogo</a>
 </div>

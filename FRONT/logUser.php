@@ -6,7 +6,7 @@ $_SESSION["email"]= $_REQUEST["email"];
 $_SESSION["password"]=$_REQUEST["password"];
 //echo $_REQUEST["email"];
 //echo $_REQUEST["password"];
-header('Location: ../logUser.php');
+header('Location: ../loguser.php');
 //?email='.$_REQUEST["email"].'&password='.$_REQUEST["password"]);
 die();
 ?>
