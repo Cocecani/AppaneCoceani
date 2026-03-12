@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
+$servername = "192.168.8.103";
+$username = "quintaf";
+$password = "Qu!nta";
 $dbname = "appane_coceani";
 
 // Create connection
