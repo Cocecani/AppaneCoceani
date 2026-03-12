@@ -27,26 +27,33 @@ switch ($popup) {
     case 'logout_success':
         echo "<script>alert('Logout avvenuto con successo!')</script>";
         break;
+    case 'orderSuccess':
+        echo "<script>alert('Ordine effettuato con successo!')</script>";
+    break;
+
 }
 
 function creaProd($id, $nome, $ingredienti, $prezzo)
 {
-    // ingredienti is expected to be an array; join with commas for display
     $string_ingredienti = implode(', ', $ingredienti);
+    // escape for JS string
+    $nome_js = addslashes($nome);
+    $ing_js  = addslashes($string_ingredienti);
     return "<div class='prodotto'>
                 <h2>$nome</h2>
                 <p>$string_ingredienti</p>
                 <p>€$prezzo</p>
                 <div class='counter'>
                     <button class='counter-btn' onclick='decrement($id)'>-</button>
-                    <span class='counter-value' id=$id>1</span>
+                    <span class='counter-value' id='$id'>1</span>
                     <button class='counter-btn' onclick='increment($id)'>+</button>
-                    <button class='cart-btn' onclick='addToCart()'>
+                    <button class='cart-btn' onclick='addToCart($id, \"$nome_js\", $prezzo, \"$ing_js\")'>
                         <img src='grafica/img/cart.png' alt='Add to cart' class='cart-icon' />
                     </button>
                 </div>
             </div>";
 }
+
 
 ?>
 <!DOCTYPE html>

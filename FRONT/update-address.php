@@ -32,7 +32,8 @@ if ($user['indirizzo']) {
     // UPDATE indirizzo esistente
     $sql_update = "UPDATE tindirizzo SET via = ?, numeroCivico = ?, CAP = ?, citta = ?, provincia = ? WHERE id = ?";
     $stmt_update = $conn->prepare($sql_update);
-    $stmt_update->bind_param("sssss", $via, $numeroCivico, $CAP, $citta, $provincia, $user['indirizzo']);
+    $stmt_update->bind_param("sssssi", $via, $numeroCivico, $CAP, $citta, $provincia, $user['indirizzo']);
+
     
     if (!$stmt_update->execute()) {
         redirect("/FRONT/edit-address.php?popup=fail");
