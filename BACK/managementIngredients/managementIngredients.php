@@ -39,7 +39,7 @@ function createIngredient($name)
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo createIngredient($row["nome"])  
+                    echo createIngredient($row["nome"]); 
                 }
             } else {
                 echo '<p> Per ora non ci sono ingredienti salvati </p>';

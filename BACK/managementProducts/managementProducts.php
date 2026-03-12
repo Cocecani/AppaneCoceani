@@ -45,14 +45,21 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
 
             if ($resultMenu->num_rows > 0) {
                 while ($rowProd = $resultMenu->fetch_assoc()) {
-                    $stmtIng = $conn->prepare("SELECT ingrediente FROM tricetta WHERE idProdotto = ?");
+                    $stmtIng = $conn->prepare("SELECT idIngrediente FROM tricetta WHERE idProdotto = ?");
                     
                     $stmtIng->bind_param("i", $rowProd["id"]);
                     $stmtIng->execute();
                     $resultI = $stmtIng->get_result();
                     $ingredienti = [];
                     while ($rowI = $resultI->fetch_assoc()) {
-                        $ingredienti[] = $rowI['ingrediente'];
+                        $stmt = $conn->prepare("SELECT nome FROM tingrediente WHERE id = ?");
+                        
+                        $stmt->bind_param("i", $rowI['idIngrediente']);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+                        if($result->num_rows===1){
+                            $ingredienti[] = $result->fetch_assoc()["nome"];
+                        }
                     }
                     echo creaProd($rowProd["id"], $rowProd["nome"], $ingredienti,  $rowProd["prezzo"]);
                     

@@ -27,14 +27,14 @@
                     <option value=''>Seleziona ingrediente</option>";
         
 
-        $result = $conn->query("SELECT nome FROM tingrediente");
+        $result = $conn->query("SELECT id, nome FROM tingrediente");
         
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-                if($row['nome']===$ingredient)
-                    echo "<option value='{$row['nome']}' selected>{$row['nome']}</option>";
+                if($row['id']==$ingredient)
+                    echo "<option value='{$row['id']}' selected>{$row['nome']}</option>";
                 else
-                    echo "<option value='{$row['nome']}'>{$row['nome']}</option>";
+                    echo "<option value='{$row['id']}'>{$row['nome']}</option>";
             }
         }else{
             echo "<script>alert('Error')</script>";
@@ -72,14 +72,14 @@
                     Ingredienti
                     <div id="containerIngredients">
                         <?php
-                            $stmt = $conn->prepare("SELECT ingrediente FROM tricetta WHERE idProdotto = ?");
+                            $stmt = $conn->prepare("SELECT idIngrediente FROM tricetta WHERE idProdotto = ?");
                             $stmt->bind_param("s", $idProd);
                             $stmt->execute();
 
                             $result = $stmt->get_result();
                             if($result->num_rows > 0){
                                 while($row = $result->fetch_assoc()){
-                                    createInputRowSelected($conn, $row['ingrediente']);
+                                    createInputRowSelected($conn, $row['idIngrediente']);
                                 }
                             }else{
                                 echo "<script>alert('Error')</script>";

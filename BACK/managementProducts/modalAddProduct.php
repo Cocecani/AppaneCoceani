@@ -28,9 +28,9 @@
                             <select name="ingredients[]" required>
                                 <option value="">Seleziona ingrediente</option>
                                 <?php
-                                    $result = $conn->query("SELECT nome FROM tingrediente");
+                                    $result = $conn->query("SELECT id, nome FROM tingrediente");
                                     while($row = $result->fetch_assoc()){
-                                        echo "<option value='{$row['nome']}'>{$row['nome']}</option>";
+                                        echo "<option value='{$row['id']}'>{$row['nome']}</option>";
                                     }
                                 ?>
                             </select>

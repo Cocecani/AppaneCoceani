@@ -35,7 +35,7 @@
         if($resultProd->num_rows === 1){
             $rowProd = $resultProd->fetch_assoc();
             foreach($ingredients as $ingredient){
-                $stmtProd = $conn->prepare("INSERT INTO `tricetta`(`ingrediente`, `idProdotto`) VALUES (?,?)");
+                $stmtProd = $conn->prepare("INSERT INTO `tricetta`(`idIngrediente`, `idProdotto`) VALUES (?,?)");
                 $stmtProd->bind_param("ss", $ingredient, $rowProd["id"]);
                 $stmtProd->execute();
             }
