@@ -4,13 +4,13 @@ session_start();
 require('../../includes/db.php');
 include('../header.php');
 
-function createIngredient($name)
+function createIngredient($id, $name)
 {
-    return "<div class='prodotto'>
+    return "<div class='ingredient'>
                 <div>
                     <h2>$name</h2>
-                    <button class='cart-btn' style='float: right;' title='Modifica prodotto' 
-                        onclick='openModal(\"modalModifyIngredient.php?name=$name\")'>
+                    <button class='cart-btn' style='float: right;' title='Modifica ingrediente' 
+                        onclick='openModal(\"modalModifyIngredient.php?id=$id\")'>
                         <img src='../../grafica/img/pen.png' class='cart-icon' />
                     </button>
                 </div>
@@ -35,11 +35,11 @@ function createIngredient($name)
         <h1>Gestione di ingredienti</h1>
         <div class="menu">
             <?php
-            $result = $conn->query("SELECT * FROM tingrediente");
+            $result = $conn->query("SELECT id, nome FROM tingrediente");
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo createIngredient($row["nome"]); 
+                    echo createIngredient($row["id"], $row["nome"]); 
                 }
             } else {
                 echo '<p> Per ora non ci sono ingredienti salvati </p>';
@@ -50,7 +50,7 @@ function createIngredient($name)
         </div>
 
     </div>
-    <button class="add-btn" title="Aggiungi prodotto" onclick="openModal('modalAddIngredient.php')">+</button>
+    <button class="add-btn" title="Aggiungi ingrediente" onclick="openModal('modalAddIngredient.php')">+</button>
 
     <div id="modal" class="modal">
 

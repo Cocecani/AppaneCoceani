@@ -42,7 +42,7 @@
                 
 
         echo "  </select>
-                <button type='button' class='remove-btn'> - </button>
+                <button type='button' class='remove-btn' title='Togli ingrediente'> - </button>
             </div>";
 
                        
@@ -88,7 +88,7 @@
 
                     </div>
                         
-                    <button type="button" id="add-ingredient" style="width: 100%;">+</button> 
+                    <button type="button" id="add-ingredient" style="width: 100%;" title="Aggiungi ingrediente">+</button> 
                 </div>
                       
                 <div class="container">

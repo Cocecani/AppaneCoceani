@@ -1,16 +1,19 @@
 <?php
     require('../../includes/db.php');
 
-    $nameIngredient=$_REQUEST['name'];
-
-    $stmt = $conn->prepare("SELECT nome FROM tingrediente WHERE nome = ?");
-    $stmt->bind_param("s", $nameIngredient);
+    $idIngredient=$_REQUEST['id'];
+    $nameIngredient=null;
+    echo $idIngredient."<br>";
+    
+    $stmt = $conn->prepare("SELECT nome FROM tingrediente WHERE id = ?");
+    $stmt->bind_param("i", $id);
     $stmt->execute();
 
     $result = $stmt->get_result();
-    if($result->num_rows === 1){
+    echo $result->num_rows;
+    if($result->num_rows == 1){
         $row = $result->fetch_assoc();
-        $nameProd=$row['nome'];
+        $nameIngredient=$row['nome'];
     }else{
         echo "<script>alert('Error')</script>";
     } 
@@ -27,7 +30,7 @@
 <body>
     <div class="main-content">
 
-        <form action="modifyIngredient.php?oldName=<?php echo $nameIngredient;?>" method="post">
+        <form action="modifyIngredient.php?id=<?php echo $idIngredient;?>" method="post">
             
             <label>
                 Nome del prodotto <br>

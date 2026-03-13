@@ -23,10 +23,6 @@
         $stmt= $conn->prepare("INSERT INTO `tingrediente`(`nome`) VALUES (?)");
         $stmt->bind_param("s", $name);
         $stmt->execute();
-
-        $stmtProd = $conn->prepare("SELECT id FROM tprodotto WHERE nome LIKE?");
-        $stmtProd->bind_param("s", $name);
-        $stmtProd->execute();
     }
     
     redirect("managementIngredients.php");
