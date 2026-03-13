@@ -28,7 +28,6 @@ if ($user['indirizzo']) {
     $sql_addr = "SELECT id, via, numeroCivico, CAP, citta, provincia FROM tindirizzo WHERE id = ?";
     $stmt_addr = $conn->prepare($sql_addr);
     $stmt_addr->bind_param("i", $user['indirizzo']);
-    redirect("index.php?". $user['indirizzo']);
     $stmt_addr->execute();
     $result_addr = $stmt_addr->get_result();
     $address = $result_addr->fetch_assoc();
@@ -37,18 +36,20 @@ if ($user['indirizzo']) {
 ?>
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="utf-8">
     <title>Profilo - Appane</title>
     <link rel="stylesheet" href="../grafica/style.css">
-    
+
 </head>
+
 <body>
     <?php include('header.php'); ?>
-    
+
     <div class="profile-container">
         <h1>Il mio profilo</h1>
-        
+
         <div class="profile-section">
             <h2>Dati Personali</h2>
             <div class="profile-item">
@@ -63,8 +64,8 @@ if ($user['indirizzo']) {
                 <label>Telefono:</label>
                 <span><?php echo $user['numeroTelefonico'] ? htmlspecialchars($user['numeroTelefonico']) : 'Non inserito'; ?></span>
             </div>
-                <a href="edit-profile.php" class="btn">Modifica</a>
-            
+            <a href="edit-profile.php" class="btn">Modifica</a>
+
         </div>
 
         <div class="profile-section">
@@ -90,15 +91,17 @@ if ($user['indirizzo']) {
                     <label>Provincia:</label>
                     <span><?php echo htmlspecialchars($address['provincia']); ?></span>
                 </div>
-            <?php else: ?>
-                <p>Nessun indirizzo aggiunto.</p>
             <?php endif; ?>
-                <a href="edit-address.php" class="btn">Modifica Indirizzo</a>
-            
+            <a href="edit-address.php" class="btn">
+                <?php echo $address ? 'Modifica Indirizzo' : 'Aggiungi Indirizzo'; ?>
+            </a>
+
+
         </div>
 
-            <a href="logout.php" class="btn logout-btn">Logout</a>
+        <a href="logout.php" class="btn logout-btn">Logout</a>
     </div>
 
 </body>
+
 </html>

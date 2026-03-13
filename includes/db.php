@@ -1,7 +1,14 @@
 <?php
+/*4
 $servername = "192.168.8.103";
 $username = "quintaf";
 $password = "Qu!nta";
+$dbname = "appane_coceani";
+*/
+
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "appane_coceani";
 
 // Create connection
