@@ -70,6 +70,15 @@ body {
   color: #fff;
 }
 
+.ingredient {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #fabfc1;
+  justify-self: center;
+  color: #fff;
+}
+
 .prodotto h2 {
   margin-top: 0;
 }
