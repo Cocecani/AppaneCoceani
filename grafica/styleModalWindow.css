@@ -55,7 +55,7 @@
  
 
 
-.modal form input[type="submit"]:hover {
+.modal form button:hover {
   background-color: #ce6b7f;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -83,7 +83,7 @@
     width:100%;
 }
 
-.modal #add-ingredient, .modal .input-row button{
+.modal #add-item, .modal .input-row button{
   padding: 5px;
 }
 
@@ -93,7 +93,7 @@
     align-items: center;
 }
 
-.modal #containerIngredients{
+.modal #containerItems{
     max-height: 130px;
     overflow-y: auto;
     overflow-x: hidden;

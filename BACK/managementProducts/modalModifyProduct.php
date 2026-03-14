@@ -42,7 +42,7 @@
                 
 
         echo "  </select>
-                <button type='button' class='remove-btn' title='Togli ingrediente'> - </button>
+                <button type='button' class='remove-item' title='Togli ingrediente'> - </button>
             </div>";
 
                        
@@ -70,7 +70,7 @@
             <div class="level">
                 <div style="width: 70%">
                     Ingredienti
-                    <div id="containerIngredients">
+                    <div id="containerItems">
                         <?php
                             $stmt = $conn->prepare("SELECT idIngrediente FROM tricetta WHERE idProdotto = ?");
                             $stmt->bind_param("s", $idProd);
@@ -88,7 +88,7 @@
 
                     </div>
                         
-                    <button type="button" id="add-ingredient" style="width: 100%;" title="Aggiungi ingrediente">+</button> 
+                    <button type="button" id="add-item" style="width: 100%;" title="Aggiungi ingrediente">+</button> 
                 </div>
                       
                 

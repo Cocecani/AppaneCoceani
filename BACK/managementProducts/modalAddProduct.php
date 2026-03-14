@@ -23,7 +23,7 @@
             <div class="level">
                 <div style="width: 50%">
                     Ingredienti
-                    <div id="containerIngredients">
+                    <div id="containerItems">
                         <div class="input-row">
                             <select name="ingredients[]" required>
                                 <option value="">Seleziona ingrediente</option>
@@ -34,11 +34,11 @@
                                     }
                                 ?>
                             </select>
-                            <button type="button" class="remove-btn" title="Togli ingrediente"> - </button>
+                            <button type="button" class="remove-item" title="Togli ingrediente"> - </button>
                         </div>  
                     </div>
                         
-                    <button type="button" id="add-ingredient" style="width: 100%;" title="Aggiungi ingrediente">+</button> 
+                    <button type="button" id="add-item" style="width: 100%;" title="Aggiungi ingrediente">+</button> 
                 </div>
                       
                 

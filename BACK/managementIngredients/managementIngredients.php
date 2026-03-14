@@ -42,7 +42,7 @@ function createIngredient($id, $name)
                     echo createIngredient($row["id"], $row["nome"]); 
                 }
             } else {
-                echo '<p> Per ora non ci sono ingredienti salvati </p>';
+                echo '<p style="justify-self: center;"> Per ora non ci sono prodotti salvati </p>';
             }
             ?>
 
@@ -56,7 +56,7 @@ function createIngredient($id, $name)
 
     </div>
 
-    <script src="../managementProducts.js"></script>
+    <script src="../managementProducts.js?v=<?php echo time();?>"></script>
 </body>
 
 </html>

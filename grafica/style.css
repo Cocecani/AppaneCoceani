@@ -36,8 +36,8 @@ body {
   height: auto;
   background: #fabfc1;
   display: flex;
-  justify-content: space-between;
-  padding: 5px 100px;
+  justify-content: space-evenly;
+  padding: 5px;
   margin-top: 10px;
 }
 
@@ -47,7 +47,7 @@ body {
 
 /*===MAIN CONTENT===*/
 
-.welcomeText h2 {
+.welcomeText h2  {
   text-align: center;
   color: #e4788e;
 }
@@ -55,6 +55,11 @@ body {
 .main-content h1 {
   text-align: center;
   font-size: 40px;
+  color: #e4788e;
+}
+
+.main-content p {
+  text-align: center;
   color: #e4788e;
 }
 
@@ -179,7 +184,22 @@ body {
   line-height: 1;
 }
 
-.cart-btn:hover .add-btn:hover{
+.create-btn {
+  border-radius: 8px;
+  padding: 12px 15px;
+  background-color: #e4788e;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  line-height: 1;
+}
+
+.cart-btn:hover, .add-btn:hover, .create-btn:hover{
   background-color: #ce6b7f;
 }
 

@@ -1,7 +1,7 @@
 document.addEventListener('click', function(e){
-  if(e.target && e.target.classList.contains('remove-btn')){
+  if(e.target && e.target.classList.contains('remove-item')){
 
-    let container = document.getElementById('containerIngredients');
+    let container = document.getElementById('containerItems');
     let rows = container.querySelectorAll('.input-row');
 
     if(rows.length > 1){
@@ -10,8 +10,8 @@ document.addEventListener('click', function(e){
 
   }
   
-  if(e.target && e.target.id === 'add-ingredient'){
-    let container = document.getElementById('containerIngredients');
+  if(e.target && e.target.id === 'add-item'){
+    let container = document.getElementById('containerItems');
     let firstRow = container.querySelector('.input-row');
     let newRow = firstRow.cloneNode(true);
     newRow.querySelector('select').value = "";
