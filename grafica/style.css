@@ -70,20 +70,33 @@ body {
   color: #fff;
 }
 
-.ingredient {
-  margin-bottom: 20px;
-  padding: 20px;
-  border-radius: 15px;
-  background-color: #fabfc1;
-  justify-self: center;
-  color: #fff;
-}
-
 .prodotto h2 {
   margin-top: 0;
 }
 .prodotto p {
   margin-bottom: 0;
+}
+
+/*===Ingrediente===*/
+
+.listIngredients{
+  width: 75%;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.ingredient{
+  padding:20px;
+  border-radius:15px;
+  background-color:#fabfc1;
+  color:white;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 /*===COUNTER===*/

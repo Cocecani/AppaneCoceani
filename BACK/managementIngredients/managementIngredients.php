@@ -7,13 +7,13 @@ include('../header.php');
 function createIngredient($id, $name)
 {
     return "<div class='ingredient'>
-                <div>
-                    <h2>$name</h2>
-                    <button class='cart-btn' style='float: right;' title='Modifica ingrediente' 
-                        onclick='openModal(\"modalModifyIngredient.php?id=$id\")'>
-                        <img src='../../grafica/img/pen.png' class='cart-icon' />
-                    </button>
-                </div>
+                
+                <h2>$name</h2>
+                <button class='cart-btn' title='Modifica ingrediente' 
+                    onclick='openModal(\"modalModifyIngredient.php?id=$id\")'>
+                    <img src='../../grafica/img/pen.png' class='cart-icon' />
+                </button>
+                
             </div>";
 }
 
@@ -33,7 +33,7 @@ function createIngredient($id, $name)
     </div>
     <div class="main-content">
         <h1>Gestione di ingredienti</h1>
-        <div class="menu">
+        <div class="listIngredients">
             <?php
             $result = $conn->query("SELECT id, nome FROM tingrediente");
 

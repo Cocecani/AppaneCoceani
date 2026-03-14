@@ -30,7 +30,7 @@
         $stmt->execute();
 
         foreach($ingredients as $ingredient){
-            $stmt = $conn->prepare("INSERT INTO `tricetta`(`ingrediente`, `idProdotto`) VALUES (?,?)");
+            $stmt = $conn->prepare("INSERT INTO `tricetta`(`idIngrediente`, `idProdotto`) VALUES (?,?)");
             $stmt->bind_param("ss", $ingredient, $idProd);
             $stmt->execute();
         }

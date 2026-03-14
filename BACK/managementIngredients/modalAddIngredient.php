@@ -22,7 +22,7 @@
 
             <div class="spaceBetween buttons">
                 <button type="button" onclick="closeModal()">CANCELLA</button>
-                <button type="submit">AGGIUNGI</button>
+                <button type="submit">AGGIUNGIiiiiiiiiiii</button>
             </div>
             
         </form>
