@@ -6,7 +6,7 @@
     echo $idIngredient."<br>";
     
     $stmt = $conn->prepare("SELECT nome FROM tingrediente WHERE id = ?");
-    $stmt->bind_param("i", $id);
+    $stmt->bind_param("s", $idIngredient);
     $stmt->execute();
 
     $result = $stmt->get_result();
@@ -37,7 +37,7 @@
                 <input type="text" name="nameIngredient" value="<?php echo $nameIngredient;?>" style="width: 100%;" required>
             </label>
 
-            <div class="spaceBetween buttons">
+            <div class="level buttons">
                 <button type="button" onclick="closeModal()">CANCELLA</button>
                 <button type="submit" name="delete">ELIMINA</button>
                 <button type="submit" name="save">SALVA</button>

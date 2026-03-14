@@ -20,15 +20,15 @@
                 <input type="text" name="nameProduct" placeholder="Pane Bianco" style="width: 100%;" required>
             </label>
 
-            <div class="spaceBetween">
-                <div style="width: 70%">
+            <div class="level">
+                <div style="width: 50%">
                     Ingredienti
                     <div id="containerIngredients">
                         <div class="input-row">
                             <select name="ingredients[]" required>
                                 <option value="">Seleziona ingrediente</option>
                                 <?php
-                                    $result = $conn->query("SELECT id, nome FROM tingrediente");
+                                    $result = $conn->query("SELECT id, nome FROM tingrediente ORDER BY nome");
                                     while($row = $result->fetch_assoc()){
                                         echo "<option value='{$row['id']}'>{$row['nome']}</option>";
                                     }
@@ -41,18 +41,18 @@
                     <button type="button" id="add-ingredient" style="width: 100%;" title="Aggiungi ingrediente">+</button> 
                 </div>
                       
-                <div class="container">
-                    <label>
-                        Prezzo del prodotto(€) <br>
-                        <input type="number" name="priceProduct" placeholder="6.67" step="0.01" min="0" required>
-                    </label>  
-                </div>
+                
+                <label>
+                    Prezzo del prodotto(€) <br>
+                    <input type="number" name="priceProduct" placeholder="6.67" step="0.01" min="0" required>
+                </label>  
+                
                 
 
             </div>
             
 
-            <div class="spaceBetween buttons">
+            <div class="level buttons">
                 <button type="button" onclick="closeModal()">CANCELLA</button>
                 <button type="submit">AGGIUNGI</button>
             </div>

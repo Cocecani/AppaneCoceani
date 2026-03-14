@@ -13,6 +13,7 @@
 /* CARD FORM */
 .modal .main-content form {
   background: #fabfc1;
+  width: 425px;
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
@@ -75,7 +76,7 @@
     border:none; 
 }
 
-.modal .spaceBetween{
+.modal .level{
     margin-top:10px;
     display:flex;
     gap:15px;

@@ -40,7 +40,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
         <h1>Gestione di prodotti</h1>
         <div class="menu">
             <?php
-            $sqlMenu = "SELECT * FROM tprodotto";
+            $sqlMenu = "SELECT id, nome, prezzo FROM tprodotto ORDER BY nome";
             $resultMenu = $conn->query($sqlMenu);
 
             if ($resultMenu->num_rows > 0) {
@@ -61,6 +61,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
                             $ingredienti[] = $result->fetch_assoc()["nome"];
                         }
                     }
+                    sort($ingredienti);
                     echo creaProd($rowProd["id"], $rowProd["nome"], $ingredienti,  $rowProd["prezzo"]);
                     
                 }

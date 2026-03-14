@@ -35,7 +35,7 @@ function createIngredient($id, $name)
         <h1>Gestione di ingredienti</h1>
         <div class="listIngredients">
             <?php
-            $result = $conn->query("SELECT id, nome FROM tingrediente");
+            $result = $conn->query("SELECT id, nome FROM tingrediente ORDER BY nome");
 
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {

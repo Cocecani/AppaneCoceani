@@ -20,9 +20,9 @@
                 <input type="text" name="nameIngredient" placeholder="Farina" style="width: 100%;" required>
             </label>
 
-            <div class="spaceBetween buttons">
+            <div class="level buttons">
                 <button type="button" onclick="closeModal()">CANCELLA</button>
-                <button type="submit">AGGIUNGIiiiiiiiiiii</button>
+                <button type="submit">AGGIUNGI</button>
             </div>
             
         </form>

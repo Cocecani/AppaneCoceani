@@ -21,12 +21,12 @@
         //echo "save<br>";
 
         $stmt = $conn->prepare("UPDATE `tingrediente` SET `nome`=? WHERE id LIKE ?");
-        $stmt->bind_param("s", $nameIngredient, $idIngredient);
+        $stmt->bind_param("ss", $nameIngredient, $idIngredient);
         $stmt->execute();
 
     }
 
-    redirect("managementProducts.php")
+    redirect("managementIngredients.php")
 
 
 ?>

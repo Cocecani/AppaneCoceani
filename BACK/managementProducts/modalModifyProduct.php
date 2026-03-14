@@ -27,7 +27,7 @@
                     <option value=''>Seleziona ingrediente</option>";
         
 
-        $result = $conn->query("SELECT id, nome FROM tingrediente");
+        $result = $conn->query("SELECT id, nome FROM tingrediente ORDER BY nome");
         
         if($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
@@ -67,7 +67,7 @@
                 <input type="text" name="nameProduct" value="<?php echo $nameProd;?>" style="width: 100%;" required>
             </label>
 
-            <div class="spaceBetween">
+            <div class="level">
                 <div style="width: 70%">
                     Ingredienti
                     <div id="containerIngredients">
@@ -91,18 +91,18 @@
                     <button type="button" id="add-ingredient" style="width: 100%;" title="Aggiungi ingrediente">+</button> 
                 </div>
                       
-                <div class="container">
-                    <label>
-                        Prezzo del prodotto(€) <br>
-                        <input type="number" name="priceProduct" value="<?php echo $priceProd;?>" step="0.01" min="0" required>
-                    </label>  
-                </div>
+                
+                <label>
+                    Prezzo del prodotto(€) <br>
+                    <input type="number" name="priceProduct" value="<?php echo $priceProd;?>" step="0.01" min="0" required>
+                </label>  
+                
                 
 
             </div>
             
 
-            <div class="spaceBetween buttons">
+            <div class="level buttons">
                 <button type="button" onclick="closeModal()">CANCELLA</button>
                 <button type="submit" name="delete">ELIMINA</button>
                 <button type="submit" name="save">SALVA</button>
