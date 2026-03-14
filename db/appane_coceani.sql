@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Creato il: Mar 13, 2026 alle 10:56
--- Versione del server: 10.11.11-MariaDB-0+deb12u1
--- Versione PHP: 8.2.28
+-- Host: 127.0.0.1
+-- Creato il: Mar 14, 2026 alle 20:31
+-- Versione del server: 10.4.32-MariaDB
+-- Versione PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -76,12 +76,10 @@ CREATE TABLE `tingrediente` (
 --
 
 INSERT INTO `tingrediente` (`id`, `nome`) VALUES
-(2, 'Acqua'),
-(3, 'Uovo'),
 (4, 'Sale'),
 (5, 'Lievito'),
-(6, 'Farina 00'),
-(7, 'Farina 01');
+(6, 'Farina'),
+(10, 'Acqua');
 
 -- --------------------------------------------------------
 
@@ -90,7 +88,7 @@ INSERT INTO `tingrediente` (`id`, `nome`) VALUES
 --
 
 CREATE TABLE `tmenu` (
-  `idprodotto` int(11) DEFAULT NULL
+  `idProdotto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -125,8 +123,9 @@ CREATE TABLE `tprodotto` (
 --
 
 INSERT INTO `tprodotto` (`id`, `nome`, `prezzo`) VALUES
-(13, 'Pane Biango', 0.04),
-(15, 'Pane Nuovo3', 0.08);
+(17, 'Pane Biango', 6),
+(18, 'Pane Nuovo', 8),
+(19, 'Pane Nuovo2', 23);
 
 -- --------------------------------------------------------
 
@@ -144,11 +143,17 @@ CREATE TABLE `tricetta` (
 --
 
 INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
-(2, 13),
-(2, 15),
-(3, 13),
-(3, 15),
-(4, 15);
+(4, 17),
+(4, 18),
+(4, 19),
+(5, 17),
+(5, 19),
+(6, 17),
+(6, 18),
+(6, 19),
+(10, 17),
+(10, 18),
+(10, 19);
 
 -- --------------------------------------------------------
 
@@ -199,7 +204,7 @@ ALTER TABLE `tingrediente`
 -- Indici per le tabelle `tmenu`
 --
 ALTER TABLE `tmenu`
-  ADD UNIQUE KEY `idprodotto` (`idprodotto`);
+  ADD UNIQUE KEY `idprodotto` (`idProdotto`);
 
 --
 -- Indici per le tabelle `tordine`
@@ -239,13 +244,13 @@ ALTER TABLE `tutente`
 -- AUTO_INCREMENT per la tabella `tingrediente`
 --
 ALTER TABLE `tingrediente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT per la tabella `tprodotto`
 --
 ALTER TABLE `tprodotto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Limiti per le tabelle scaricate
@@ -261,7 +266,8 @@ ALTER TABLE `tadmin`
 -- Limiti per la tabella `tmenu`
 --
 ALTER TABLE `tmenu`
-  ADD CONSTRAINT `FK_menuprodotto` FOREIGN KEY (`idprodotto`) REFERENCES `tprodotto` (`id`);
+  ADD CONSTRAINT `FK_menuprodotto` FOREIGN KEY (`idprodotto`) REFERENCES `tprodotto` (`id`),
+  ADD CONSTRAINT `tmenu_ibfk_1` FOREIGN KEY (`idProdotto`) REFERENCES `tprodotto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `tordine`
