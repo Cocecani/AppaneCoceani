@@ -8,7 +8,7 @@ include('../includes/header.php');
 <head>
     <meta charset="utf-8">
     <title>Appane - Carrello</title>
-    <link rel="stylesheet" href="../grafica/style.css">
+    <link rel="stylesheet" href="../grafica/style.css?v=<?php echo time();?>">
 </head>
 <body>
     <script src="../js.js"></script>

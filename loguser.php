@@ -25,10 +25,16 @@ if ($result && $result->num_rows > 0) {
                 $_SESSION['nome'] = $user['nome'];
                 $_SESSION['email'] = $user['email'];
                 $_SESSION["password"]=null;
-                if($user['email']==="admin@appane.it"){
+
+                $stmt = $conn->prepare("SELECT idUtente FROM `tadmin` WHERE idUtente = ?");
+                $stmt->bind_param("s", $user['idutente']);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                if($result->num_rows===1){
                         redirect("BACK/managementProducts/managementProducts.php");  
                 }else{
-                    redirect("index.php?popup=loginSuccess");    
+                        redirect("index.php?popup=loginSuccess");    
                 }
                 
         } else {
