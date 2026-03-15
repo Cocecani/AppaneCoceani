@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 14, 2026 alle 20:31
+-- Creato il: Mar 15, 2026 alle 16:37
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.0.30
 
@@ -79,7 +79,11 @@ INSERT INTO `tingrediente` (`id`, `nome`) VALUES
 (4, 'Sale'),
 (5, 'Lievito'),
 (6, 'Farina'),
-(10, 'Acqua');
+(10, 'Acqua'),
+(18, 'Zucchero'),
+(19, 'Uvette'),
+(20, 'Burro'),
+(21, 'Olio');
 
 -- --------------------------------------------------------
 
@@ -90,6 +94,15 @@ INSERT INTO `tingrediente` (`id`, `nome`) VALUES
 CREATE TABLE `tmenu` (
   `idProdotto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `tmenu`
+--
+
+INSERT INTO `tmenu` (`idProdotto`) VALUES
+(20),
+(22),
+(23);
 
 -- --------------------------------------------------------
 
@@ -123,9 +136,10 @@ CREATE TABLE `tprodotto` (
 --
 
 INSERT INTO `tprodotto` (`id`, `nome`, `prezzo`) VALUES
-(17, 'Pane Biango', 6),
-(18, 'Pane Nuovo', 8),
-(19, 'Pane Nuovo2', 23);
+(20, 'Pane Biango', 8),
+(21, 'Pane Nuovo', 22),
+(22, 'Pane Nuovo2', 11),
+(23, 'Pane Nuovo3', 23);
 
 -- --------------------------------------------------------
 
@@ -143,17 +157,17 @@ CREATE TABLE `tricetta` (
 --
 
 INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
-(4, 17),
-(4, 18),
-(4, 19),
-(5, 17),
-(5, 19),
-(6, 17),
-(6, 18),
-(6, 19),
-(10, 17),
-(10, 18),
-(10, 19);
+(4, 20),
+(5, 20),
+(5, 22),
+(6, 20),
+(6, 22),
+(10, 20),
+(10, 21),
+(19, 23),
+(20, 21),
+(20, 23),
+(21, 22);
 
 -- --------------------------------------------------------
 
@@ -244,13 +258,13 @@ ALTER TABLE `tutente`
 -- AUTO_INCREMENT per la tabella `tingrediente`
 --
 ALTER TABLE `tingrediente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT per la tabella `tprodotto`
 --
 ALTER TABLE `tprodotto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Limiti per le tabelle scaricate
@@ -290,6 +304,14 @@ ALTER TABLE `tricetta`
 --
 ALTER TABLE `tutente`
   ADD CONSTRAINT `fk_utente_indirizzo` FOREIGN KEY (`indirizzo`) REFERENCES `tindirizzo` (`id`);
+
+DELIMITER $$
+--
+-- Eventi
+--
+CREATE EVENT `delete_weekly_menu` ON SCHEDULE EVERY 1 WEEK STARTS '2026-03-21 00:00:00' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM tmenu$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

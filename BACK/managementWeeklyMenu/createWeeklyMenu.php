@@ -5,7 +5,6 @@
 
     $idProducts = $_REQUEST["products"];
 
-    $conn->query("DELETE FROM tmenu");
     if (!empty($idProducts)) {
 
         $values = [];
