@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 15, 2026 alle 16:37
+-- Creato il: Mar 15, 2026 alle 19:16
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.0.30
 
@@ -28,14 +28,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tadmin` (
-  `idutente` int(11) DEFAULT NULL
+  `idUtente` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dump dei dati per la tabella `tadmin`
 --
 
-INSERT INTO `tadmin` (`idutente`) VALUES
+INSERT INTO `tadmin` (`idUtente`) VALUES
 (0);
 
 -- --------------------------------------------------------
@@ -101,7 +101,6 @@ CREATE TABLE `tmenu` (
 
 INSERT INTO `tmenu` (`idProdotto`) VALUES
 (20),
-(22),
 (23);
 
 -- --------------------------------------------------------
@@ -111,13 +110,24 @@ INSERT INTO `tmenu` (`idProdotto`) VALUES
 --
 
 CREATE TABLE `tordine` (
-  `idUtente` int(11) DEFAULT NULL,
-  `idProdotto` int(11) DEFAULT NULL,
-  `quantita` int(11) DEFAULT NULL,
+  `idUtente` int(11) NOT NULL,
+  `idProdotto` int(11) NOT NULL,
+  `prezzo` float NOT NULL,
+  `quantita` int(11) NOT NULL,
+  `sconto` float DEFAULT NULL,
   `totale` float NOT NULL,
   `idIndirizzo` int(11) NOT NULL,
-  `data` timestamp NULL DEFAULT NULL
+  `data` timestamp NOT NULL DEFAULT current_timestamp(),
+  `accetato` tinyint(1) DEFAULT NULL,
+  `consegnato` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `tordine`
+--
+
+INSERT INTO `tordine` (`idUtente`, `idProdotto`, `prezzo`, `quantita`, `sconto`, `totale`, `idIndirizzo`, `data`, `accetato`, `consegnato`) VALUES
+(2, 20, 0, 2, NULL, 40, 0, '2026-03-15 18:11:02', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -200,7 +210,7 @@ INSERT INTO `tutente` (`idutente`, `nome`, `password`, `email`, `indirizzo`, `nu
 -- Indici per le tabelle `tadmin`
 --
 ALTER TABLE `tadmin`
-  ADD UNIQUE KEY `idutente` (`idutente`);
+  ADD UNIQUE KEY `idutente` (`idUtente`);
 
 --
 -- Indici per le tabelle `tindirizzo`
@@ -224,9 +234,9 @@ ALTER TABLE `tmenu`
 -- Indici per le tabelle `tordine`
 --
 ALTER TABLE `tordine`
-  ADD KEY `fk_ordineutente` (`idUtente`),
-  ADD KEY `fk_ordineprodotto` (`idProdotto`),
-  ADD KEY `fk_ordineindirizzo` (`idIndirizzo`);
+  ADD PRIMARY KEY (`idUtente`,`idProdotto`,`data`,`idIndirizzo`) USING BTREE,
+  ADD KEY `idProdotto` (`idProdotto`),
+  ADD KEY `idIndirizzo` (`idIndirizzo`);
 
 --
 -- Indici per le tabelle `tprodotto`
@@ -274,7 +284,8 @@ ALTER TABLE `tprodotto`
 -- Limiti per la tabella `tadmin`
 --
 ALTER TABLE `tadmin`
-  ADD CONSTRAINT `FK_admin` FOREIGN KEY (`idutente`) REFERENCES `tutente` (`idutente`);
+  ADD CONSTRAINT `FK_admin` FOREIGN KEY (`idutente`) REFERENCES `tutente` (`idutente`),
+  ADD CONSTRAINT `tadmin_ibfk_1` FOREIGN KEY (`idUtente`) REFERENCES `tutente` (`idutente`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `tmenu`
@@ -287,9 +298,9 @@ ALTER TABLE `tmenu`
 -- Limiti per la tabella `tordine`
 --
 ALTER TABLE `tordine`
-  ADD CONSTRAINT `fk_ordineindirizzo` FOREIGN KEY (`idIndirizzo`) REFERENCES `tindirizzo` (`id`),
-  ADD CONSTRAINT `fk_ordineprodotto` FOREIGN KEY (`idProdotto`) REFERENCES `tprodotto` (`id`),
-  ADD CONSTRAINT `fk_ordineutente` FOREIGN KEY (`idUtente`) REFERENCES `tutente` (`idutente`);
+  ADD CONSTRAINT `tordine_ibfk_1` FOREIGN KEY (`idProdotto`) REFERENCES `tprodotto` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `tordine_ibfk_2` FOREIGN KEY (`idUtente`) REFERENCES `tutente` (`idutente`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `tordine_ibfk_3` FOREIGN KEY (`idIndirizzo`) REFERENCES `tindirizzo` (`id`) ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `tricetta`
@@ -309,7 +320,7 @@ DELIMITER $$
 --
 -- Eventi
 --
-CREATE EVENT `delete_weekly_menu` ON SCHEDULE EVERY 1 WEEK STARTS '2026-03-21 00:00:00' ON COMPLETION NOT PRESERVE ENABLE DO DELETE FROM tmenu$$
+CREATE EVENT `delete_weekly_menu` ON SCHEDULE EVERY 1 WEEK STARTS '2026-03-21 00:00:00' ON COMPLETION PRESERVE ENABLE DO DELETE FROM tmenu$$
 
 DELIMITER ;
 COMMIT;
