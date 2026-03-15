@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('../includes/utils.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php'); // always works
 
 logout();
 ?>

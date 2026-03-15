@@ -7,8 +7,8 @@ require('includes/utils.php');
 //appane@appane.com
 //adminAppane
 
-$email = trim($_SESSION['email']);
-$psw = ($_SESSION['password']);
+$email = trim($_POST['email']);
+$psw = $_POST['password'];
 
 //controllo se esiste l'utente
 $sql = "SELECT idutente, nome, password, email FROM `tutente` WHERE email = ?";
@@ -34,7 +34,8 @@ if ($result && $result->num_rows > 0) {
                 if($result->num_rows===1){
                         redirect("BACK/managementProducts/managementProducts.php");  
                 }else{
-                        redirect("index.php?popup=loginSuccess");    
+                        redirect("FRONT/profile.php");
+    
                 }
                 
         } else {
