@@ -1,8 +1,8 @@
 <?php 
 session_start();
 
-require('includes/db.php');
-require('includes/utils.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/includes/db.php'); // always works
+require($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php'); // always works
 
 //appane@appane.com
 //adminAppane
@@ -34,7 +34,7 @@ if ($result && $result->num_rows > 0) {
                 if($result->num_rows===1){
                         redirect("BACK/managementProducts/managementProducts.php");  
                 }else{
-                        redirect("FRONT/profile.php");
+                        redirect("/Account/profile.php");
     
                 }
                 

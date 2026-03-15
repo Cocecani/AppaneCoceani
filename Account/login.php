@@ -24,13 +24,14 @@
                 break;
         }
         ?>
-        <form action="logUser.php" method="post">
+        <form action="/Account/loguser.php" method="post">
             <h1>Login</h1>
             <input type="email" name="email" placeholder="mario.rossi@gmail.com" required>
             <input type="password" name="password" placeholder="Password" required>
             <input type="submit" value="Login">
-            <a href="registrati.php" class="register-btn">Registrati</a>
+            <a href="/Account/registrati.php" class="register-btn">Registrati</a>
         </form>
+
     </div>
 </body>
 

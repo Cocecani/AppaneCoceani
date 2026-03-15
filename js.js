@@ -40,4 +40,6 @@ function clearCart() {
 function submitCart() {
     document.getElementById('cart-data').value = JSON.stringify(getCart());
     document.getElementById('cart-form').submit();
+
+    clearCart();
 }

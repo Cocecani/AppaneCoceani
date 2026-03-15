@@ -2,6 +2,7 @@
 session_start();
 require($_SERVER['DOCUMENT_ROOT'] . '/includes/db.php'); // always works
 require($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php'); // always works
+require($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); // always works
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {
@@ -45,7 +46,6 @@ if ($user['indirizzo']) {
 </head>
 
 <body>
-    <?php include('header.php'); ?>
 
     <div class="profile-container">
         <h1>Il mio profilo</h1>

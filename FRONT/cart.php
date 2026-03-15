@@ -35,7 +35,7 @@ include('../includes/header.php');
                 </button>
                 <button type="button" class="cart-btn"
                     style="width:auto; border-radius:20px; padding:10px 25px;"
-                    onclick="submitCart()">
+                    onclick="submitCart();">
                         Conferma ordine
                 </button>
             </div>
