@@ -4,8 +4,8 @@ session_start();
 require($_SERVER['DOCUMENT_ROOT'] . '/includes/db.php'); // always works
 require($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php'); // always works
 
-//appane@appane.com
-//adminAppane
+//admin@appane.it
+//appane
 
 $email = trim($_POST['email']);
 $psw = $_POST['password'];
@@ -27,22 +27,22 @@ if ($result && $result->num_rows > 0) {
                 $_SESSION["password"]=null;
 
                 $stmt = $conn->prepare("SELECT idUtente FROM `tadmin` WHERE idUtente = ?");
-                $stmt->bind_param("s", $user['idutente']);
+                $stmt->bind_param("i", $user['idutente']);
                 $stmt->execute();
                 $result = $stmt->get_result();
 
                 if($result->num_rows===1){
-                        redirect("BACK/managementProducts/managementProducts.php");  
+                        redirect("/BACK/managementProducts/managementProducts.php");  
                 }else{
                         redirect("/Account/profile.php");
     
                 }
                 
         } else {
-                redirect("FRONT/login.php?popup=wrongPassword");
+                redirect("/Account/login.php?popup=wrongPassword");
         }
     
 } else {
-        redirect("FRONT/login.php?popup=noUser");
+        redirect("/Account/login.php?popup=noUser");
 }
 
