@@ -7,7 +7,7 @@
                 //echo "<a href='/FRONT/logout.php' class='button' style='margin-right: 10px;'>Logout</a>";
             }
         ?>
-        <a  href="<?php echo isset($_SESSION['user_id']) ? '../../FRONT/profile.php' : './FRONT/login.php'; ?>" 
+        <a  href="<?php echo isset($_SESSION['user_id']) ? '../../Account/profile.php' : '../Account/login.php'; ?>" 
         class="button" style="margin-right: 10px;">
             <img src="../../grafica/img/user.png" alt="user" class="header-icon">
         </a>
