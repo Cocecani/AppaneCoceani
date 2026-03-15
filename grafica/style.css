@@ -81,6 +81,7 @@ body {
 .prodotto p {
   text-align: start;
   margin-bottom: 0;
+  margin-top: 8px;
   color: #fff;
 }
 
@@ -104,6 +105,51 @@ body {
   display:flex;
   justify-content:space-between;
   align-items:center;
+}
+
+/*===Ordine===*/
+
+.order{
+  width: 75%;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #fabfc1;
+  justify-self: center;
+  color: #fff;
+}
+
+.order p{
+  text-align: start;
+  margin-bottom: 0;
+  margin-top: 8px;
+  color: #fff;
+}
+
+.level{
+  height: auto;
+  display: flex;
+  justify-content:space-between;
+  align-items: start;
+}
+
+.userInformation{
+  width: 30%;
+}
+
+.accept{
+  justify-self: end;
+}
+
+.buttons{
+  margin-top:10px;
+  display:flex;
+  gap:15px;
+  width:100%;
+}
+
+.buttons button{
+  flex:1;
 }
 
 /*===COUNTER===*/
@@ -186,7 +232,7 @@ body {
   line-height: 1;
 }
 
-.create-btn {
+.btn {
   border-radius: 8px;
   padding: 12px 15px;
   background-color: #e4788e;

@@ -9,7 +9,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
     // ingredienti is expected to be an array; join with commas for display
     $string_ingredienti = implode(', ', $ingredienti);
     return "<div class='prodotto'>
-                <div>
+                <div class='level'>
                     <h2>$nome</h2>
                     <button class='cart-btn' style='float: right;' title='Modifica prodotto' 
                         onclick='openModal(\"modalModifyProduct.php?id=$id\")'>
@@ -33,9 +33,6 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
 </head>
 
 <body>
-    <div class="welcomeText">
-        <h2>Benvenuto a il panificio di cui non potrai fare ammeno</h2>
-    </div>
     <div class="main-content">
         <h1>Gestione di prodotti</h1>
         <div class="menu">

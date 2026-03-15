@@ -28,9 +28,6 @@ function creaProd( $nome, $ingredienti, $prezzo)
 </head>
 
 <body>
-    <div class="welcomeText">
-        <h2>Benvenuto a il panificio di cui non potrai fare ammeno</h2>
-    </div>
     <div class="main-content">
         <h1>Gestione di menu settimanale</h1>
         <div class="menu">
@@ -71,7 +68,7 @@ function creaProd( $nome, $ingredienti, $prezzo)
                 }
             } else {
                 echo '<p > Il menu settimanale non è stato ancora creato </p>
-                    <button  class="create-btn" title="Crea menu settimanale" 
+                    <button  class="btn" title="Crea menu settimanale" 
                     onclick="openModal(\'modalCreateWeeklyMenu.php\')">CREARE MENU SETTIMANALE</button>';
             }
             ?>

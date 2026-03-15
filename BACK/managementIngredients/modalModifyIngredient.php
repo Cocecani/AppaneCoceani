@@ -3,14 +3,14 @@
 
     $idIngredient=$_REQUEST['id'];
     $nameIngredient=null;
-    echo $idIngredient."<br>";
+    
     
     $stmt = $conn->prepare("SELECT nome FROM tingrediente WHERE id = ?");
     $stmt->bind_param("s", $idIngredient);
     $stmt->execute();
 
     $result = $stmt->get_result();
-    echo $result->num_rows;
+    
     if($result->num_rows == 1){
         $row = $result->fetch_assoc();
         $nameIngredient=$row['nome'];

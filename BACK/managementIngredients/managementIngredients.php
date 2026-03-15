@@ -28,9 +28,6 @@ function createIngredient($id, $name)
 </head>
 
 <body>
-    <div class="welcomeText">
-        <h2>Benvenuto a il panificio di cui non potrai fare ammeno</h2>
-    </div>
     <div class="main-content">
         <h1>Gestione di ingredienti</h1>
         <div class="listIngredients">
