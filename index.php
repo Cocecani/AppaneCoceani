@@ -62,7 +62,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
 <head>
     <meta charset="utf-8">
     <title>Appane</title>
-    <link rel="stylesheet" href="grafica/style.css">
+    <link rel="stylesheet" href="grafica/style.css?v=<?php echo time();?>">
 </head>
 
 <body>
@@ -74,32 +74,44 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
         <h1>Menù settimanale</h1>
         <div class="menu">
             <?php
-            $sqlMenu = "SELECT * FROM tmenu";
+            $sqlMenu = "SELECT idProdotto FROM tmenu";
             $resultMenu = $conn->query($sqlMenu);
 
             if ($resultMenu->num_rows > 0) {
-                while ($rowMenu = $resultMenu->fetch_assoc()) {
+                while($rowIdProd = $resultMenu->fetch_assoc()){
+
                     $stmtProd = $conn->prepare("SELECT nome, prezzo FROM tprodotto WHERE id = ?");
-                    $stmtProd->bind_param("i", $rowMenu["idprodotto"]);
+                    $stmtProd->bind_param("i", $rowIdProd["idProdotto"]);
                     $stmtProd->execute();
                     $resultProd = $stmtProd->get_result();
-                    if ($resultProd->num_rows > 0) {
-                        while ($rowProd = $resultProd->fetch_assoc()) {
-                            $stmtIng = $conn->prepare("SELECT ingrediente FROM tricetta WHERE idProdotto = ?");
-                            $stmtIng->bind_param("i", $rowMenu["idprodotto"]);
-                            $stmtIng->execute();
-                            $resultI = $stmtIng->get_result();
-                            $ingredienti = [];
-                            while ($rowI = $resultI->fetch_assoc()) {
-                                $ingredienti[] = $rowI['ingrediente'];
+
+                    if($resultProd->num_rows===1){
+                        $rowProd = $resultProd->fetch_assoc();
+                        $stmtIng = $conn->prepare("SELECT idIngrediente FROM tricetta WHERE idProdotto = ?");
+                        
+                        $stmtIng->bind_param("i", $rowIdProd["idProdotto"]);
+                        $stmtIng->execute();
+                        $resultI = $stmtIng->get_result();
+                        $ingredienti = [];
+                        while ($rowI = $resultI->fetch_assoc()) {
+                            $stmt = $conn->prepare("SELECT nome FROM tingrediente WHERE id = ?");
+                            
+                            $stmt->bind_param("i", $rowI['idIngrediente']);
+                            $stmt->execute();
+                            $result = $stmt->get_result();
+                            if($result->num_rows===1){
+                                $ingredienti[] = $result->fetch_assoc()["nome"];
                             }
-                            echo creaProd($rowMenu["idprodotto"], $rowProd["nome"], $ingredienti,  $rowProd["prezzo"]);
                         }
-                    }
+                        sort($ingredienti);
+                        echo creaProd($rowIdProd["idProdotto"] ,$rowProd["nome"], $ingredienti,  $rowProd["prezzo"]);
+                    } 
+                    
                 }
             } else {
-                echo '<p> Non ci sono prodotti disponibili per l\'acquisto fino a giovedì</p>';
+                echo '<p> Per ora non ci sono prodotti salvati </p>';
             }
+            
 
             /*
             $sql = "SELECT id, nome, prezzo, FROM tprodotto";

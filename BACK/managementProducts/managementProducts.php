@@ -16,9 +16,8 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
                         <img src='../../grafica/img/pen.png' class='cart-icon' />
                     </button>
                 </div>
-                $string_ingredienti
-                <br>
-                €$prezzo
+                <p>$string_ingredienti</p>
+                <p>€$prezzo</p>
 
             </div>";
 }
@@ -67,7 +66,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
                     
                 }
             } else {
-                echo '<p style="justify-self: center;"> Per ora non ci sono prodotti salvati </p>';
+                echo '<p> Per ora non ci sono prodotti salvati </p>';
             }
             ?>
 

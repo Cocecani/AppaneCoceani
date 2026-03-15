@@ -18,7 +18,7 @@
             <div class="level">
                 
                 <div style="width: 100%">
-                    <div id="containerItems">
+                    <div id="containerItems" style="max-height: 305px">
                         <div class="input-row">
                             <select name="products[]" required>
                                 <option value="">Seleziona prodotto</option>

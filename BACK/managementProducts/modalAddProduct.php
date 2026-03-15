@@ -25,7 +25,7 @@
                     Ingredienti
                     <div id="containerItems">
                         <div class="input-row">
-                            <select name="ingredients[]" required>
+                            <select name="ingredients[]"  required>
                                 <option value="">Seleziona ingrediente</option>
                                 <?php
                                     $result = $conn->query("SELECT id, nome FROM tingrediente ORDER BY nome");

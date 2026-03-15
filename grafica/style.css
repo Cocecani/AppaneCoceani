@@ -79,7 +79,9 @@ body {
   margin-top: 0;
 }
 .prodotto p {
+  text-align: start;
   margin-bottom: 0;
+  color: #fff;
 }
 
 /*===Ingrediente===*/
