@@ -1,10 +1,10 @@
 <?php
 session_start();
-require('../includes/db.php');
-require('../includes/utils.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/includes/db.php'); // always works
+require($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php'); // always works
 
 if (!isset($_SESSION['user_id'])) {
-    redirect('/FRONT/login.php');
+    redirect('/Account/login.php');
 }
 
 $cart = json_decode($_POST['cart'] ?? '{}', true);

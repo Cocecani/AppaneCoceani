@@ -1,14 +1,14 @@
 <?php 
 session_start();
 
-require('includes/db.php');
-require('includes/utils.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/includes/db.php'); // always works
+require($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php'); // always works
 
 //appane@appane.com
 //adminAppane
 
-$email = trim($_SESSION['email']);
-$psw = ($_SESSION['password']);
+$email = trim($_POST['email']);
+$psw = $_POST['password'];
 
 //controllo se esiste l'utente
 $sql = "SELECT idutente, nome, password, email FROM `tutente` WHERE email = ?";
@@ -34,7 +34,8 @@ if ($result && $result->num_rows > 0) {
                 if($result->num_rows===1){
                         redirect("BACK/managementProducts/managementProducts.php");  
                 }else{
-                        redirect("index.php?popup=loginSuccess");    
+                        redirect("/Account/profile.php");
+    
                 }
                 
         } else {

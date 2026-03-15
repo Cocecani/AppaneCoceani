@@ -23,7 +23,7 @@
                 break;
         }
         ?>
-        <form action="/registrazione.php" method="post">
+        <form action="../registrazione.php" method="post">
             <h1>Registrati</h1>
 
             <input type="email" name="email" placeholder="mario.rossi@gmail.com*" required>
