@@ -29,7 +29,7 @@ function createIngredient($id, $name)
 
 <body>
     <div class="main-content">
-        <h1>Gestione di ingredienti</h1>
+        <h1>Gestione di Ingredienti</h1>
         <div class="listIngredients">
             <?php
             $result = $conn->query("SELECT id, nome FROM tingrediente ORDER BY nome");

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 15, 2026 alle 19:16
+-- Creato il: Mar 16, 2026 alle 22:42
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.0.30
 
@@ -95,14 +95,6 @@ CREATE TABLE `tmenu` (
   `idProdotto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dump dei dati per la tabella `tmenu`
---
-
-INSERT INTO `tmenu` (`idProdotto`) VALUES
-(20),
-(23);
-
 -- --------------------------------------------------------
 
 --
@@ -118,7 +110,7 @@ CREATE TABLE `tordine` (
   `totale` float NOT NULL,
   `idIndirizzo` int(11) NOT NULL,
   `data` timestamp NOT NULL DEFAULT current_timestamp(),
-  `accetato` tinyint(1) DEFAULT NULL,
+  `accettato` tinyint(1) DEFAULT NULL,
   `consegnato` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -126,8 +118,11 @@ CREATE TABLE `tordine` (
 -- Dump dei dati per la tabella `tordine`
 --
 
-INSERT INTO `tordine` (`idUtente`, `idProdotto`, `prezzo`, `quantita`, `sconto`, `totale`, `idIndirizzo`, `data`, `accetato`, `consegnato`) VALUES
-(2, 20, 0, 2, NULL, 40, 0, '2026-03-15 18:11:02', NULL, NULL);
+INSERT INTO `tordine` (`idUtente`, `idProdotto`, `prezzo`, `quantita`, `sconto`, `totale`, `idIndirizzo`, `data`, `accettato`, `consegnato`) VALUES
+(2, 20, 20, 2, NULL, 40, 0, '2026-03-15 18:57:46', 1, 1),
+(2, 22, 22, 3, NULL, 66, 0, '2026-03-05 18:55:31', NULL, NULL),
+(2, 22, 22, 2, NULL, 44, 0, '2026-03-15 19:18:47', 1, 1),
+(2, 23, 23, 2, NULL, 46, 0, '2026-03-15 19:31:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -191,7 +186,7 @@ CREATE TABLE `tutente` (
   `password` text DEFAULT NULL,
   `email` text DEFAULT NULL,
   `indirizzo` int(11) DEFAULT NULL,
-  `numeroTelefonico` int(11) DEFAULT NULL
+  `numeroTelefonico` varchar(13) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -199,8 +194,8 @@ CREATE TABLE `tutente` (
 --
 
 INSERT INTO `tutente` (`idutente`, `nome`, `password`, `email`, `indirizzo`, `numeroTelefonico`) VALUES
-(0, 'Signor Appane', '$2y$10$XdAqyU9gruz0zDNALOAYVeQMO.XlYTvsFTCJw2lYc6sPvXnFWRSKi', 'admin@appane.it', NULL, NULL),
-(2, 'Vitalii Khodziuk', '$2y$10$USBQU/qJzH5McFbh4raYhuUEHa5Uky3D.maLAeBTMg/9KT1WIv5Xu', 'khodziuk.vitalii@volta.ts.it', NULL, NULL);
+(0, 'Vincenzo', '$2y$10$XdAqyU9gruz0zDNALOAYVeQMO.XlYTvsFTCJw2lYc6sPvXnFWRSKi', 'admin@appane.it', NULL, NULL),
+(2, 'Vitalii Khodziuk', '$2y$10$USBQU/qJzH5McFbh4raYhuUEHa5Uky3D.maLAeBTMg/9KT1WIv5Xu', 'khodziuk.vitalii@volta.ts.it', NULL, '+393245820850');
 
 --
 -- Indici per le tabelle scaricate
@@ -256,7 +251,7 @@ ALTER TABLE `tricetta`
 -- Indici per le tabelle `tutente`
 --
 ALTER TABLE `tutente`
-  ADD PRIMARY KEY (`idutente`),
+  ADD PRIMARY KEY (`idutente`) USING BTREE,
   ADD UNIQUE KEY `email` (`email`) USING HASH,
   ADD KEY `fk_utente_indirizzo` (`indirizzo`);
 

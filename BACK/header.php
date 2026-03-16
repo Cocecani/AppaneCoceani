@@ -21,7 +21,8 @@
     <a  href="../managementProducts/managementProducts.php" class="menu-option">Prodotti</a>
     <a  href="../managementIngredients/managementIngredients.php" class="menu-option">Ingredienti</a>
     <a  href="../managementWeeklyMenu/managementWeeklyMenu.php" class="menu-option">Menu Settimanale</a>
-    <a  href="../managementOrders/managementOrders.php" class="menu-option">Ordini</a>
+    <a  href="../managementOrders/managementOrdersArrived.php" class="menu-option">Ordini Arrivati</a>
+    <a  href="../managementOrders/managementOrdersAccepted.php" class="menu-option">Ordini Accettati</a>
     <a  href="../managementUsers/managementUsers.php" class="menu-option">Utenti</a>
     <a  href="../managementSummary/managementSummary.php" class="menu-option">Riepilogo</a>
 </div>

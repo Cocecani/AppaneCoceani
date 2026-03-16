@@ -34,7 +34,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
 
 <body>
     <div class="main-content">
-        <h1>Gestione di prodotti</h1>
+        <h1>Gestione di Prodotti</h1>
         <div class="menu">
             <?php
             $sqlMenu = "SELECT id, nome, prezzo FROM tprodotto ORDER BY nome";

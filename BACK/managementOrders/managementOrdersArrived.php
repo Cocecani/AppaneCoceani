@@ -47,7 +47,8 @@ function createProd($idUser, $nameProd, $quantity, $price, $total)
 
 <body>
     <div class="main-content">
-        <h1>Gestione di ordini</h1>
+        <h1>Gestione di Ordini Arrivati</h1>
+
         <div>
             <?php
                 
@@ -71,8 +72,10 @@ function createProd($idUser, $nameProd, $quantity, $price, $total)
                         $resultUser = $stmt->get_result();
                         if($resultUser->num_rows===1){
                             echo "<div class='order'>";
-                            echo "<div class='level'>";
+                            
                             echo "<div class='userInformation'>";
+                            echo "<div>";
+
 
                             $user=$resultUser->fetch_assoc();
                             echo createUser($user["nome"],$user["email"],$user["numeroTelefonico"]);
@@ -107,7 +110,13 @@ function createProd($idUser, $nameProd, $quantity, $price, $total)
                                 
                             }
                             echo "</div>";
+                            echo "</div>";
 
+                            //-------------------------------------
+
+                            echo "<div style='width:100%;'>";
+
+                            echo "<div class='level'>";
                             echo "<div>";
 
                             $query="SELECT `idProdotto`, `prezzo`, `quantita`, `totale`
@@ -142,7 +151,11 @@ function createProd($idUser, $nameProd, $quantity, $price, $total)
                                     onclick='openModal(\"modalModifyOrder.php?idUser=$idUser\")'>
                                     <img src='../../grafica/img/pen.png' class='cart-icon' />
                                 </button>";
-                            echo "</div>"; 
+
+                            echo "</div>";
+
+                            
+                             
 
                             $query="SELECT SUM(`totale`) AS totaleOrdine
                                     FROM `tordine` 
@@ -158,29 +171,34 @@ function createProd($idUser, $nameProd, $quantity, $price, $total)
                             $totalOrder=$resultTotale->fetch_assoc()["totaleOrdine"];
                             echo "<div class='accept'>";
 
-                            echo "<div class='level'>";
-                            echo "<h2>In totale: </h2>";
-                            echo "<h2> $totalOrder €</h2>";
-                            echo "</div>";
+                                echo "<div class='level'>";
+                                    echo "<h2>In totale: </h2>";
+                                    echo "<h2> $totalOrder €</h2>";
+                                echo "</div>";
                             
-                            echo "<div class='level buttons'>";
-                            echo "<button class='btn'
-                                    onclick='openModal(\"modalModifyOrder.php?idUser=$idUser\")'>
-                                    NON ACCETTARE
-                                </button>";
-                            echo "<button class='btn'
-                                onclick='openModal(\"modalModifyOrder.php?idUser=$idUser\")'>
-                                ACCETTARE
-                            </button>";
+                                echo "<form action='acceptOrder.php?idUser=$idUser' method='post'>";
+                                echo "<div class='buttons'>";
+                                    echo "<button type='submit' name='refuse' class='btn'>
+                                            NON ACCETTARE
+                                        </button>";
+                                    echo "<button type='submit' name='accept' class='btn'>
+                                            ACCETTARE
+                                        </button>";
+
+                                echo "</div>";
+                                echo "</form>";
 
                             echo "</div>";
+
                             echo "</div>";
+
+                            
 
                             echo "</div>";
                         }
                     }
                 }else{
-                    echo "Non ci sono ordini arrivati";
+                    echo "<p >Non ci sono ordini arrivati</p >";
 
                 }
                 
@@ -192,7 +210,6 @@ function createProd($idUser, $nameProd, $quantity, $price, $total)
         </div>
 
     </div>
-    <button class="add-btn" title="Aggiungi prodotto" onclick="openModal('modalAddProduct.php')">+</button>
 
     <div id="modal" class="modal">
 

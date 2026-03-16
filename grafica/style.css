@@ -110,6 +110,8 @@ body {
 /*===Ordine===*/
 
 .order{
+  display: flex;
+  justify-content:space-between;
   width: 75%;
   margin-bottom: 20px;
   padding: 20px;
@@ -134,7 +136,12 @@ body {
 }
 
 .userInformation{
-  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  padding: 0px 50px;
+  border-right: 5px solid #fff;
+  margin-right: 50px;
 }
 
 .accept{
@@ -142,14 +149,23 @@ body {
 }
 
 .buttons{
-  margin-top:10px;
   display:flex;
-  gap:15px;
-  width:100%;
+  gap: 50px;
 }
 
 .buttons button{
   flex:1;
+  min-width: 150px;
+}
+
+.discount{
+  width: 100px;
+  padding: 12px 15px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.3s;
+  box-sizing: border-box;
 }
 
 /*===COUNTER===*/
@@ -247,7 +263,7 @@ body {
   line-height: 1;
 }
 
-.cart-btn:hover, .add-btn:hover, .create-btn:hover{
+.cart-btn:hover, .add-btn:hover, .create-btn:hover, .btn:hover{
   background-color: #ce6b7f;
 }
 

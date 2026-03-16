@@ -29,7 +29,7 @@ function creaProd( $nome, $ingredienti, $prezzo)
 
 <body>
     <div class="main-content">
-        <h1>Gestione di menu settimanale</h1>
+        <h1>Gestione di Menu Settimanale</h1>
         <div class="menu">
             <?php
             $sqlMenu = "SELECT idProdotto FROM tmenu";
