@@ -22,7 +22,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result && $result->num_rows > 0) {
-    redirect("/FRONT/registrati.php?popup=mailDupe");
+    redirect("/registrati.php?popup=mailDupe");
 } else {
     $sqlInsert = "INSERT INTO `tutente`(`nome`, `password`, `email`, `numeroTelefonico`) VALUES (?,?,?,?)";
     $stmt = $conn->prepare($sqlInsert);
@@ -42,8 +42,8 @@ if ($result && $result->num_rows > 0) {
             redirect("/index.php?popup=registrationSuccess");
         }
     } else {
-        redirect("/FRONT/registrati.php?popup=fail");
+        redirect("/registrati.php?popup=fail");
     }
 }
 
-redirect("/FRONT/registrati.php?popup=fail");
+redirect("/registrati.php?popup=fail");
