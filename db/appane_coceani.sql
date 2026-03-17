@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Creato il: Mar 16, 2026 alle 22:42
--- Versione del server: 10.4.32-MariaDB
--- Versione PHP: 8.0.30
+-- Host: localhost
+-- Creato il: Mar 17, 2026 alle 07:58
+-- Versione del server: 10.11.11-MariaDB-0+deb12u1
+-- Versione PHP: 8.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -94,6 +94,14 @@ INSERT INTO `tingrediente` (`id`, `nome`) VALUES
 CREATE TABLE `tmenu` (
   `idProdotto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `tmenu`
+--
+
+INSERT INTO `tmenu` (`idProdotto`) VALUES
+(20),
+(21);
 
 -- --------------------------------------------------------
 
@@ -194,8 +202,9 @@ CREATE TABLE `tutente` (
 --
 
 INSERT INTO `tutente` (`idutente`, `nome`, `password`, `email`, `indirizzo`, `numeroTelefonico`) VALUES
-(0, 'Vincenzo', '$2y$10$XdAqyU9gruz0zDNALOAYVeQMO.XlYTvsFTCJw2lYc6sPvXnFWRSKi', 'admin@appane.it', NULL, NULL),
-(2, 'Vitalii Khodziuk', '$2y$10$USBQU/qJzH5McFbh4raYhuUEHa5Uky3D.maLAeBTMg/9KT1WIv5Xu', 'khodziuk.vitalii@volta.ts.it', NULL, '+393245820850');
+(1, 'Vincenzo', '$2y$10$XdAqyU9gruz0zDNALOAYVeQMO.XlYTvsFTCJw2lYc6sPvXnFWRSKi', 'admin@appane.it', NULL, NULL),
+(2, 'Vitalii Khodziuk', '$2y$10$USBQU/qJzH5McFbh4raYhuUEHa5Uky3D.maLAeBTMg/9KT1WIv5Xu', 'khodziuk.vitalii@volta.ts.it', NULL, '+393245820850'),
+(3, 'cliente', '$2y$10$VgjzRJ9i45uR5HaFUdAqsety7OKMFI1bRNHcMqE80gAlnU70IkdOG', 'cliente@appane.it', NULL, '');
 
 --
 -- Indici per le tabelle scaricate
@@ -263,13 +272,19 @@ ALTER TABLE `tutente`
 -- AUTO_INCREMENT per la tabella `tingrediente`
 --
 ALTER TABLE `tingrediente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT per la tabella `tprodotto`
 --
 ALTER TABLE `tprodotto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT per la tabella `tutente`
+--
+ALTER TABLE `tutente`
+  MODIFY `idutente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Limiti per le tabelle scaricate
@@ -279,14 +294,14 @@ ALTER TABLE `tprodotto`
 -- Limiti per la tabella `tadmin`
 --
 ALTER TABLE `tadmin`
-  ADD CONSTRAINT `FK_admin` FOREIGN KEY (`idutente`) REFERENCES `tutente` (`idutente`),
+  ADD CONSTRAINT `FK_admin` FOREIGN KEY (`idUtente`) REFERENCES `tutente` (`idutente`),
   ADD CONSTRAINT `tadmin_ibfk_1` FOREIGN KEY (`idUtente`) REFERENCES `tutente` (`idutente`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `tmenu`
 --
 ALTER TABLE `tmenu`
-  ADD CONSTRAINT `FK_menuprodotto` FOREIGN KEY (`idprodotto`) REFERENCES `tprodotto` (`id`),
+  ADD CONSTRAINT `FK_menuprodotto` FOREIGN KEY (`idProdotto`) REFERENCES `tprodotto` (`id`),
   ADD CONSTRAINT `tmenu_ibfk_1` FOREIGN KEY (`idProdotto`) REFERENCES `tprodotto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -315,7 +330,7 @@ DELIMITER $$
 --
 -- Eventi
 --
-CREATE EVENT `delete_weekly_menu` ON SCHEDULE EVERY 1 WEEK STARTS '2026-03-21 00:00:00' ON COMPLETION PRESERVE ENABLE DO DELETE FROM tmenu$$
+CREATE DEFINER=`quintaf`@`%` EVENT `delete_weekly_menu` ON SCHEDULE EVERY 1 WEEK STARTS '2026-03-21 00:00:00' ON COMPLETION PRESERVE ENABLE DO DELETE FROM tmenu$$
 
 DELIMITER ;
 COMMIT;
