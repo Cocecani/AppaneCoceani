@@ -9,8 +9,8 @@ function createUser($name, $email, $phoneNumber)
     if($phoneNumber===null) $phoneNumber="ASSENTE";
     return "<div>
                 <h2>$name</h2>
-                <p>Email: $email</p>
-                <p>Numero di telefono: $phoneNumber</p>
+                <p>Email:<br>$email</p>
+                <p>Numero di telefono: <br>$phoneNumber</p>
             </div>";
 }
 
