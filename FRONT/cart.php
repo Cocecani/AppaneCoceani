@@ -1,6 +1,6 @@
 <?php
 session_start();
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/db.php'); // always works
+require('../includes/db.php');
 include('../includes/header.php');
 ?>
 <!DOCTYPE html>

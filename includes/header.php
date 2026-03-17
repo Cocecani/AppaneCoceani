@@ -1,5 +1,5 @@
 <div class="topbar">
-    <h1><a href="index.php" style="color: inherit; text-decoration: none;">Appane</a></h1>
+    <h1><a href="/quintaf/coceani/AppaneCoceani/index.php" style="color: inherit; text-decoration: none;">Appane</a></h1>
     <div style="margin: auto 0;">
         <?php
         if (isset($_SESSION['user_id'])) {

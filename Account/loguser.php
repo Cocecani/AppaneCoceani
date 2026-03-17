@@ -30,7 +30,7 @@ if ($result && $result->num_rows > 0) {
                 $result = $stmt->get_result();
 
                 if($result->num_rows===1){
-                        redirect("/BACK/managementProducts/managementProducts.php");  
+                        redirect("BACK/managementProducts/managementProducts.php");  
                 }else{
                         redirect("profile.php");
     

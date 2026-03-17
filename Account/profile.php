@@ -100,9 +100,8 @@ if ($user['indirizzo']) {
 
         </div>
 
-        <a href="logout.php" class="btn logout-btn">Logout</a>
+        <a href="/quintaf/coceani/AppaneCoceani/Account/logout.php" class="btn logout-btn">Logout</a>
     </div>
 
 </body>
-
 </html>
