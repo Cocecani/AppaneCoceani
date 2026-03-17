@@ -1,8 +1,11 @@
 <?php
 session_start();
 
-require('includes/db.php');
-require('includes/utils.php');
+require __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../includes/utils.php';
+
 
 //Signor Appane
 //adminAppane
@@ -22,7 +25,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result && $result->num_rows > 0) {
-    redirect("/registrati.php?popup=mailDupe");
+    redirect("registrati.php?popup=mailDupe");
 } else {
     $sqlInsert = "INSERT INTO `tutente`(`nome`, `password`, `email`, `numeroTelefonico`) VALUES (?,?,?,?)";
     $stmt = $conn->prepare($sqlInsert);
@@ -39,7 +42,7 @@ if ($result && $result->num_rows > 0) {
             $_SESSION['user_id'] = $user['idutente'];
             $_SESSION['nome'] = $nome;
             $_SESSION['email'] = $email;
-            redirect("/index.php?popup=registrationSuccess");
+            redirect("../index.php?popup=registrationSuccess");
         }
     } else {
         redirect("/registrati.php?popup=fail");

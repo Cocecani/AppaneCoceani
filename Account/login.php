@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Appane login</title>
-    <link rel="stylesheet" href="../grafica/stylelogin.css">
+    <link rel="stylesheet" href="../grafica/stylelogi.css">
 </head>
 
 <body>

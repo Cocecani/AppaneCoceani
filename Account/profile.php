@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require __DIR__ . '../includes/db.php';
+require __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/header.php';
 
@@ -100,7 +100,7 @@ if ($user['indirizzo']) {
 
         </div>
 
-        <a href="/quintaf/coceani/AppaneCoceani/Account/logout.php" class="btn logout-btn">Logout</a>
+        <a href="<?= BASE_URL ?>/AppaneCoceani/Account/logout.php" class="btn logout-btn">Logout</a>
     </div>
 
 </body>

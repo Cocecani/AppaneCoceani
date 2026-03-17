@@ -1,6 +1,7 @@
 <?php
 session_start();
-require('../includes/utils.php'); // always works
+require __DIR__ . '/../includes/utils.php';
+
 
 logout();
 ?>

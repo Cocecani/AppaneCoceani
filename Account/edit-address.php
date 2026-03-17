@@ -1,11 +1,11 @@
 <?php
 session_start();
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/db.php'); // always works
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php'); // always works
+require __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../config.php';
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {
-    redirect("/FRONT/login.php");
+    redirect(BASE_URL . "/Account/login.php");
 }
 
 $user_id = $_SESSION['user_id'];
@@ -36,12 +36,10 @@ $popup = $_GET['popup'] ?? null;
 <head>
     <meta charset="utf-8">
     <title>Modifica Indirizzo - Appane</title>
-    <link rel="stylesheet" href="../grafica/stylelogin.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/grafica/style.css">
 </head>
 <body>
-    <div class="topbar">
-        <h1>Appane</h1>
-    </div>
+    <?php // require_once __DIR__ . '/../includes/header.php'; ?>
     <div class="main-content">
         <?php
         switch ($popup) {
@@ -53,7 +51,7 @@ $popup = $_GET['popup'] ?? null;
                 break;
         }
         ?>
-        <form action="/FRONT/update-address.php" method="post">
+        <form action="<?= BASE_URL ?>/Account/update-address.php" method="post">
             <h1><?php echo $address ? 'Modifica Indirizzo' : 'Aggiungi Indirizzo'; ?></h1>
 
             <label>Via</label>
@@ -72,7 +70,7 @@ $popup = $_GET['popup'] ?? null;
             <input type="text" name="provincia" maxlength="4" value="<?php echo htmlspecialchars($address['provincia'] ?? ''); ?>" required>
 
             <input type="submit" value="Salva Indirizzo">
-            <a href="profile.php" class="register-btn">Indietro</a>
+            <a href="<?= BASE_URL ?>/Account/profile.php" class="register-btn">Indietro</a>
         </form>
     </div>
 </body>

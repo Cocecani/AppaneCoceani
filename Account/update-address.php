@@ -1,7 +1,10 @@
 <?php
 session_start();
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/db.php'); // always works
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php'); // always works
+
+require __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/header.php';
+
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {

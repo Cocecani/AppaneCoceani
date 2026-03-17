@@ -1,17 +1,18 @@
 <?php
 session_start();
 
-require('includes/db.php');
-require('includes/utils.php');
+require_once __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../includes/utils.php';
+require_once __DIR__ . '/../config.php';
 
 if (!isset($_SESSION['user_id'])) {
-    redirect('/Account/login.php');
+    redirect(BASE_URL . '/AppaneCoceani/Account/login.php');
 }
 
 $cart = json_decode($_POST['cart'] ?? '{}', true);
 
 if (empty($cart)) {
-    redirect('/FRONT/cart.php');
+    redirect(BASE_URL . '/FRONT/cart.php');
 }
 
 $user_id = $_SESSION['user_id'];
@@ -35,4 +36,4 @@ foreach ($cart as $id => $item) {
     $stmt->execute();
 }
 
-redirect('/index.php?popup=orderSuccess');
+redirect(BASE_URL . '/index.php?popup=orderSuccess');
