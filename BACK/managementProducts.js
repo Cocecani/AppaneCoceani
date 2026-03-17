@@ -33,3 +33,24 @@ function openModal(url){
 function closeModal(){
   document.getElementById("modal").style.display = "none";
 }
+
+document.addEventListener('input', function(e){
+
+  if(e.target.classList.contains('quantity')){
+
+    let input = e.target;
+
+    let price = parseFloat(input.dataset.price);
+    let id = input.dataset.id;
+
+    let quantity = parseFloat(input.value) || 0;
+
+    let total = (quantity * price).toFixed(2);
+
+    let span = document.getElementById("total" + id);
+
+    span.innerText = " × " + price + " € = " + total + " €";
+
+  }
+
+});

@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Creato il: Mar 17, 2026 alle 07:58
--- Versione del server: 10.11.11-MariaDB-0+deb12u1
--- Versione PHP: 8.2.28
+-- Host: 127.0.0.1
+-- Creato il: Mar 17, 2026 alle 18:10
+-- Versione del server: 10.4.32-MariaDB
+-- Versione PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,7 +36,7 @@ CREATE TABLE `tadmin` (
 --
 
 INSERT INTO `tadmin` (`idUtente`) VALUES
-(0);
+(1);
 
 -- --------------------------------------------------------
 
@@ -127,10 +127,10 @@ CREATE TABLE `tordine` (
 --
 
 INSERT INTO `tordine` (`idUtente`, `idProdotto`, `prezzo`, `quantita`, `sconto`, `totale`, `idIndirizzo`, `data`, `accettato`, `consegnato`) VALUES
-(2, 20, 20, 2, NULL, 40, 0, '2026-03-15 18:57:46', 1, 1),
+(2, 20, 20, 2, NULL, 40, 0, '2026-03-16 18:57:46', 1, 1),
 (2, 22, 22, 3, NULL, 66, 0, '2026-03-05 18:55:31', NULL, NULL),
-(2, 22, 22, 2, NULL, 44, 0, '2026-03-15 19:18:47', 1, 1),
-(2, 23, 23, 2, NULL, 46, 0, '2026-03-15 19:31:00', 1, 1);
+(2, 22, 22, 2, NULL, 44, 0, '2026-03-16 19:18:47', 1, 1),
+(2, 23, 23, 2, NULL, 46, 0, '2026-03-16 19:31:00', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -330,7 +330,11 @@ DELIMITER $$
 --
 -- Eventi
 --
-CREATE DEFINER=`quintaf`@`%` EVENT `delete_weekly_menu` ON SCHEDULE EVERY 1 WEEK STARTS '2026-03-21 00:00:00' ON COMPLETION PRESERVE ENABLE DO DELETE FROM tmenu$$
+CREATE EVENT `delete_weekly_menu` ON SCHEDULE EVERY 1 WEEK STARTS '2026-03-21 00:00:00' ON COMPLETION PRESERVE ENABLE DO DELETE FROM tmenu$$
 
 DELIMITER ;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

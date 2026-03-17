@@ -109,6 +109,17 @@ body {
 
 /*===Ordine===*/
 
+.listProducts{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0px 25%;
+  min-width: 60%;
+}
+
+.container{
+ width:100%
+}
+
 .order{
   display: flex;
   justify-content:space-between;
@@ -129,7 +140,6 @@ body {
 }
 
 .level{
-  height: auto;
   display: flex;
   justify-content:space-between;
   align-items: start;
@@ -280,4 +290,17 @@ body {
   width:100%;
   height:100%;
   background:rgba(0,0,0,0.5);
+}
+
+@media(max-width: 1200px){
+  .userInformation{
+    padding: 0px 15px;
+    margin-right: 15px;
+  }
+
+  .buttons{
+    gap: 15px;
+  }
+
+
 }

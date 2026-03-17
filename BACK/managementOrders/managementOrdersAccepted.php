@@ -25,11 +25,13 @@ function createAddress($address, $number, $cap, $city, $province)
             </div>";
 }
 
-function createProd($idUser, $nameProd, $quantity, $price, $total)
+function createProd($idUser, $nameProd,  $price, $quantity, $total)
 {
+    $price=number_format($price, 2, '.', '');
+    $total=number_format($total, 2, '.', '');
     return "<div>
                 <h2>$nameProd</h2>
-                <p>$price × $quantity € = $total € </p>
+                <p> $quantity × $price € = $total € </p>
             </div>";
 }
 
@@ -114,10 +116,10 @@ function createProd($idUser, $nameProd, $quantity, $price, $total)
 
                             //-------------------------------------
 
-                            echo "<div style='width:100%;'>";
+                            echo "<div class='container'>";
 
                             echo "<div class='level'>";
-                            echo "<div>";
+                            echo "<div class='listProducts'>";
 
                             $query="SELECT `idProdotto`, `prezzo`, `quantita`, `totale`
                                     FROM `tordine` 
@@ -147,15 +149,8 @@ function createProd($idUser, $nameProd, $quantity, $price, $total)
 
                             echo "</div>";
 
-                            echo "<button class='cart-btn' title='Modifica ordine' 
-                                    onclick='openModal(\"modalModifyOrder.php?idUser=$idUser\")'>
-                                    <img src='../../grafica/img/pen.png' class='cart-icon' />
-                                </button>";
 
                             echo "</div>";
-
-                            
-                             
 
                             $query="SELECT SUM(`totale`) AS totaleOrdine
                                     FROM `tordine` 
@@ -169,6 +164,7 @@ function createProd($idUser, $nameProd, $quantity, $price, $total)
 
                             $resultTotale=$stmt->get_result();
                             $totalOrder=$resultTotale->fetch_assoc()["totaleOrdine"];
+                            $totalOrder=number_format($totalOrder, 2, '.', '');
                             echo "<div class='accept'>";
 
                                 echo "<div class='level'>";
@@ -181,10 +177,12 @@ function createProd($idUser, $nameProd, $quantity, $price, $total)
                                     echo "<button type='submit' name='notDelivered' class='btn'>
                                             NON CONSEGNATO
                                         </button>";
+                                    
                                     echo "<input type='number' class='discount' name='discount' placeholder='Sconto' step='0.01' min='0' required>";
                                     echo "<button type='submit' name='delivered' class='btn'>
                                             CONSEGNATO
                                         </button>";
+                                    
 
                                 echo "</div>";
                                 echo "</form>";

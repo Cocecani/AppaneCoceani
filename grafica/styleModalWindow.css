@@ -21,6 +21,11 @@
   flex-direction: column;
 }
 
+.modal .main-content h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .modal form input {
   padding: 12px 15px;
   margin-bottom: 15px;
@@ -79,18 +84,14 @@
 .modal .level{
     margin-top:10px;
     display:flex;
-    gap:15px;
+    align-items: center;
+    gap:5%;
     width:100%;
+    justify-content: unset;
 }
 
 .modal #add-item, .modal .input-row button{
   padding: 5px;
-}
-
-.modal #container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .modal #containerItems{
@@ -101,8 +102,21 @@
     padding-bottom: 2px;
 }
 
+.modal #container{
+  max-height: 260px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 5px;
+  padding-bottom: 2px;
+}
+
 .modal .buttons button{
   flex:1;
   min-width: 0;
+}
+
+.modal #container .level input{
+  width: 17%;
+  margin-bottom: 0px;
 }
 
