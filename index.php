@@ -48,7 +48,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
                     <span class='counter-value' id='$id'>1</span>
                     <button class='counter-btn' onclick='increment($id)'>+</button>
                     <button class='cart-btn' onclick='addToCart($id, \"$nome_js\", $prezzo, \"$ing_js\")'>
-                        <img src='grafica/img/cart.png' alt='Add to cart' class='cart-icon' />
+                        Add
                     </button>
                 </div>
             </div>";

@@ -1,11 +1,9 @@
 <?php 
 session_start();
 
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/db.php'); // always works
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php'); // always works
+require('../includes/db.php');
+require('../includes/utils.php');
 
-//admin@appane.it
-//appane
 
 $email = trim($_POST['email']);
 $psw = $_POST['password'];
@@ -32,9 +30,9 @@ if ($result && $result->num_rows > 0) {
                 $result = $stmt->get_result();
 
                 if($result->num_rows===1){
-                        redirect("/BACK/managementProducts/managementProducts.php");  
+                        redirect("BACK/managementProducts/managementProducts.php");  
                 }else{
-                        redirect("/Account/profile.php");
+                        redirect("profile.php");
     
                 }
                 

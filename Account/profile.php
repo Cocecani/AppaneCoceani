@@ -1,8 +1,9 @@
 <?php
 session_start();
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/db.php'); // always works
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php'); // always works
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/header.php'); // always works
+
+require('../includes/db.php');
+require('../includes/utils.php');
+include('../includes/header.php');
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {
@@ -99,9 +100,8 @@ if ($user['indirizzo']) {
 
         </div>
 
-        <a href="logout.php" class="btn logout-btn">Logout</a>
+        <a href="/quintaf/coceani/AppaneCoceani/Account/logout.php" class="btn logout-btn">Logout</a>
     </div>
 
 </body>
-
 </html>

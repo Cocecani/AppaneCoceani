@@ -1,7 +1,8 @@
 <?php
 session_start();
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/db.php'); // always works
-require($_SERVER['DOCUMENT_ROOT'] . '/includes/utils.php'); // always works
+
+require('includes/db.php');
+require('includes/utils.php');
 
 if (!isset($_SESSION['user_id'])) {
     redirect('/Account/login.php');

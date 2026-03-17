@@ -23,7 +23,7 @@
                 break;
         }
         ?>
-        <form action="../registrazione.php" method="post">
+        <form action="registrazione.php" method="post">
             <h1>Registrati</h1>
 
             <input type="email" name="email" placeholder="mario.rossi@gmail.com*" required>
@@ -33,7 +33,7 @@
             <p>* campi obbligatori</p>
 
             <input type="submit" value="Registrati">
-            <a href="/FRONT/login.php" class="register-btn">Hai già un account? Accedi</a>
+            <a href="login.php" class="register-btn">Hai già un account? Accedi</a>
         </form>
     </div>
 </body>
