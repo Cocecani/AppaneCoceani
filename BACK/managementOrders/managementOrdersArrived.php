@@ -6,7 +6,8 @@ include('../header.php');
 
 function createUser($name, $email, $phoneNumber)
 {
-    return "<div class='user'>
+    if($phoneNumber===null) $phoneNumber="ASSENTE";
+    return "<div>
                 <h2>$name</h2>
                 <p>Email: $email</p>
                 <p>Numero di telefono: $phoneNumber</p>
@@ -15,7 +16,7 @@ function createUser($name, $email, $phoneNumber)
 
 function createAddress($address, $number, $cap, $city, $province)
 {
-    return "<div class='address'>
+    return "<div>
                 
                 <p>Indirizzo: <br>$address, $number,
                 $cap,

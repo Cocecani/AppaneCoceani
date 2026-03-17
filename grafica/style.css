@@ -112,8 +112,9 @@ body {
 .listProducts{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0px 25%;
-  min-width: 60%;
+  gap: 0px 70px;
+  
+  padding-right: 50px;
 }
 
 .container{
@@ -132,7 +133,7 @@ body {
   color: #fff;
 }
 
-.order p{
+.order p, .user p{
   text-align: start;
   margin-bottom: 0;
   margin-top: 8px;
@@ -176,6 +177,38 @@ body {
   font-size: 14px;
   transition: 0.3s;
   box-sizing: border-box;
+}
+
+/*===User===*/
+
+.listUsers{
+  width: 85%;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.user{
+  padding:20px;
+  border-radius:15px;
+  background-color:#fabfc1;
+  color:white;
+  margin-bottom: 20px;
+
+  display:flex;
+  align-items:center;
+}
+
+.user .userInformation{
+  border-right: 0px solid white;
+  margin-right: 0px;
+  border-left: 5px solid white;
+  margin-left: 50px;
+}
+.userImg{
+  width: 30%;
 }
 
 /*===COUNTER===*/
@@ -298,9 +331,15 @@ body {
     margin-right: 15px;
   }
 
+  .user .userInformation{
+    border-left: 5px solid white;
+    margin-left: 15px;
+  }
+
   .buttons{
     gap: 15px;
   }
 
-
+  
+  
 }
