@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-require('../includes/db.php');
-require('../includes/utils.php');
-include('../includes/header.php');
+require __DIR__ . '../includes/db.php';
+require_once __DIR__ . '/../config.php';
+require_once __DIR__ . '/../includes/header.php';
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {

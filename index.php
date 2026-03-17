@@ -1,8 +1,11 @@
 <?php
 session_start();
+require __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/includes/header.php'; 
 
-require('includes/db.php');
-include('includes/header.php');
+
+
 
 $popup = $_GET['popup'] ?? null;
 switch ($popup) {
