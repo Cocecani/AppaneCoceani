@@ -1,0 +1,81 @@
+-- =====================
+-- NEW INGREDIENTS
+-- =====================
+INSERT INTO `tingrediente` (`nome`) VALUES
+('Cioccolato'),      -- 22
+('Latte'),           -- 23
+('Uova'),            -- 24
+('Semola'),          -- 25
+('Semi di Girasole'),-- 26
+('Semi di Sesamo'),  -- 27
+('Zucchero di Canna'),-- 28
+('Pomodoro'),        -- 29
+('Mozzarella'),      -- 30
+('Origano'),         -- 31
+('Salsiccia'),       -- 32
+('Cipolla'),         -- 33
+('Rosmarino');       -- 34
+
+-- =====================
+-- PRODUCTS (fixed prices)
+-- =====================
+INSERT INTO `tprodotto` (`nome`, `prezzo`) VALUES
+('Pane Ciock', 6.50),      -- 24 🍞
+('Pan Uvetta', 6.50),      -- 25 🍞
+('Alpha', 6.50),           -- 26 🍞
+('Semi Biango', 6.50),     -- 27 🍞
+('Biango', 6.50),          -- 28 🍞
+('Brown Sugar', 6.50),     -- 29 🍞
+('Apizzz 14', 14),         -- 30 🍕
+('Margherita', 14),        -- 31 🍕
+('Tiphel', 6.50),          -- 32 🍞
+('Rossalsichia', 14),      -- 33 🍕
+('Tina Cipollari', 14);    -- 34 🍕
+
+-- =====================
+-- RECIPES (tricetta)
+-- =====================
+
+-- Pane Ciock (24): Farina, Latte, Cioccolato, Zucchero, Burro, Uova
+INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
+(6, 24),(23, 24),(22, 24),(18, 24),(20, 24),(24, 24);
+
+-- Pan Uvetta (25): Farina, Acqua, Lievito, Sale, Uvette, Zucchero
+INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
+(6, 25),(10, 25),(5, 25),(4, 25),(19, 25),(18, 25);
+
+-- Alpha (26): Farina, Acqua, Lievito, Sale, Semola
+INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
+(6, 26),(10, 26),(5, 26),(4, 26),(25, 26);
+
+-- Semi Biango (27): Farina, Acqua, Lievito, Sale, Semi di Girasole, Semi di Sesamo
+INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
+(6, 27),(10, 27),(5, 27),(4, 27),(26, 27),(27, 27);
+
+-- Biango (28): Farina, Acqua, Lievito, Sale
+INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
+(6, 28),(10, 28),(5, 28),(4, 28);
+
+-- Brown Sugar (29): Farina, Latte, Zucchero di Canna, Burro, Uova, Lievito
+INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
+(6, 29),(23, 29),(28, 29),(20, 29),(24, 29),(5, 29);
+
+-- Apizzz 14 (30): Farina, Acqua, Lievito, Sale, Pomodoro, Mozzarella, Olio, Origano
+INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
+(6, 30),(10, 30),(5, 30),(4, 30),(29, 30),(30, 30),(21, 30),(31, 30);
+
+-- Margherita (31): Farina, Acqua, Lievito, Sale, Pomodoro, Mozzarella, Olio
+INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
+(6, 31),(10, 31),(5, 31),(4, 31),(29, 31),(30, 31),(21, 31);
+
+-- Tiphel (32): Farina, Acqua, Lievito, Sale, Rosmarino, Olio
+INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
+(6, 32),(10, 32),(5, 32),(4, 32),(34, 32),(21, 32);
+
+-- Rossalsichia (33): Farina, Acqua, Lievito, Sale, Pomodoro, Salsiccia, Mozzarella
+INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
+(6, 33),(10, 33),(5, 33),(4, 33),(29, 33),(32, 33),(30, 33);
+
+-- Tina Cipollari (34): Farina, Acqua, Lievito, Sale, Cipolla, Olio, Rosmarino
+INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
+(6, 34),(10, 34),(5, 34),(4, 34),(33, 34),(21, 34),(34, 34);
