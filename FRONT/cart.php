@@ -95,7 +95,7 @@ if ($user_id) {
         <button type="button" onclick="applyOverride()">
             <?php echo $address ? 'Usa questo indirizzo' : 'Salva e usa questo indirizzo'; ?>
         </button>
-        <span id="address-confirm-msg">✅ Indirizzo temporaneo salvato!</span>
+        
     </div>
 </div>
 

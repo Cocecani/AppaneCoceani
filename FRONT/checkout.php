@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 $cart = json_decode($_POST['cart'] ?? '{}', true);
 
 if (empty($cart)) {
-    redirect(BASE_URL . '/FRONT/cart.php');
+    redirect(BASE_URL . '/AppaneCoceani/FRONT/cart.php');
 }
 
 $user_id = $_SESSION['user_id'];

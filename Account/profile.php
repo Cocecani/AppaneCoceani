@@ -111,7 +111,7 @@ if ($user['indirizzo']) {
 
         </div>
 
-        <a href="<?= BASE_URL ?>/Account/logout.php" class="btn logout-btn">Logout</a>
+        <a href="<?= BASE_URL ?>/AppaneCoceani/Account/logout.php" class="btn logout-btn">Logout</a>
     </div>
 
 </body>
