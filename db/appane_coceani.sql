@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mar 18, 2026 alle 22:01
+-- Creato il: Mar 18, 2026 alle 23:25
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.0.30
 
@@ -279,7 +279,7 @@ CREATE TABLE `tutente` (
 --
 
 INSERT INTO `tutente` (`idutente`, `nome`, `password`, `email`, `indirizzo`, `numeroTelefonico`) VALUES
-(1, 'Signor Appane', '$2y$10$XdAqyU9gruz0zDNALOAYVeQMO.XlYTvsFTCJw2lYc6sPvXnFWRSKi', 'admin@appane.it', NULL, NULL),
+(1, 'Signor Appane', '$2y$10$XdAqyU9gruz0zDNALOAYVeQMO.XlYTvsFTCJw2lYc6sPvXnFWRSKi', 'admin@appane.it', NULL, 2147483647),
 (9, 'cliente', '$2y$10$2QWSv5L4v/vCXeTebGWyVeQXX9gYB04t4I4zIaBd5ykIiPNyz0Vwq', 'cliente@appane.it', 3, 2147483647);
 
 --
