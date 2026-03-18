@@ -4,7 +4,7 @@
             if(file_exists("../managementProducts/managementProducts.php")){
                 echo "<a href='../managementProducts/managementProducts.php' ";
             }else{
-                echo "<a href='../BACK/managementProducts/managementProducts.php'n";
+                echo "<a href='../BACK/managementProducts/managementProducts.php' ";
             }      
             echo "style='color: inherit; text-decoration: none;'>Appane</a>" ;   
         ?>
