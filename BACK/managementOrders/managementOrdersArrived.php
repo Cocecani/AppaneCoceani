@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 require('../../includes/db.php');
 include('../header.php');
@@ -175,7 +174,7 @@ function createProd($idUser, $nameProd,  $price, $quantity, $total)
                             $totalOrder=number_format($totalOrder, 2, '.', '');
                             echo "<div class='accept'>";
 
-                                echo "<div class='level'>";
+                                echo "<div class='level total'>";
                                     echo "<h2>In totale: </h2>";
                                     echo "<h2> $totalOrder €</h2>";
                                 echo "</div>";
@@ -219,7 +218,7 @@ function createProd($idUser, $nameProd,  $price, $quantity, $total)
 
     </div>
 
-    <script src="../managementProducts.js?v=<?php echo time();?>"></script>
+    <script src="../management.js?v=<?php echo time();?>"></script>
 </body>
 
 </html>

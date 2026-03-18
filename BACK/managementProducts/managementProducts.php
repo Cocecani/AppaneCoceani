@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 require('../../includes/db.php');
 include('../header.php');
@@ -77,7 +76,7 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
 
     </div>
 
-    <script src="../managementProducts.js?v=<?php echo time();?>"></script>
+    <script src="../management.js?v=<?php echo time();?>"></script>
 </body>
 
 </html>

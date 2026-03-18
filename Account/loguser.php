@@ -28,13 +28,14 @@ if ($result && $result->num_rows > 0) {
         $result = $stmt->get_result();
 
         if ($result->num_rows === 1) {
+            
             redirect(BASE_URL . '/BACK/managementProducts/managementProducts.php');
         } else {
-            redirect(BASE_URL . '/AppaneCoceani/Account/profile.php');
+            redirect(BASE_URL . '/Account/profile.php');
         }
     } else {
-        redirect(BASE_URL . '/AppaneCoceani/Account/login.php?popup=wrongPassword');
+        redirect(BASE_URL . '/Account/login.php?popup=wrongPassword');
     }
 } else {
-    redirect(BASE_URL . '/AppaneCoceani/Account/login.php?popup=noUser');
+    redirect(BASE_URL . '/Account/login.php?popup=noUser');
 }

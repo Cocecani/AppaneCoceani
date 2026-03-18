@@ -4,7 +4,6 @@
     $idIngredient=$_REQUEST['id'];
     $nameIngredient=null;
     
-    
     $stmt = $conn->prepare("SELECT nome FROM tingrediente WHERE id = ?");
     $stmt->bind_param("s", $idIngredient);
     $stmt->execute();

@@ -6,12 +6,7 @@
     $name=$_REQUEST["nameProduct"];
     $price=$_REQUEST["priceProduct"];
     $ingredients=$_REQUEST["ingredients"];
-
-    /*echo $name."<br>";
-    echo $price."<br>";
-    print_r($ingredients);*/
     
-
     $stmtProd = $conn->prepare("SELECT nome FROM tprodotto WHERE nome LIKE ?");
     $stmtProd->bind_param("s", $name);
     $stmtProd->execute();

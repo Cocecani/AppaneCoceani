@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 require('../../includes/db.php');
 include('../header.php');
@@ -53,7 +52,7 @@ function createIngredient($id, $name)
 
     </div>
 
-    <script src="../managementProducts.js?v=<?php echo time();?>"></script>
+    <script src="../management.js?v=<?php echo time();?>"></script>
 </body>
 
 </html>

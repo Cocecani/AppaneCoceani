@@ -1,5 +1,4 @@
 <?php 
-
     require('../../includes/db.php');
     require('../../includes/utils.php');
 

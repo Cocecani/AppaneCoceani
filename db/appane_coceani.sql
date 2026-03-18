@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2026 at 05:44 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Creato il: Mar 18, 2026 alle 22:01
+-- Versione del server: 10.4.32-MariaDB
+-- Versione PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tadmin`
+-- Struttura della tabella `tadmin`
 --
 
 CREATE TABLE `tadmin` (
@@ -32,16 +32,16 @@ CREATE TABLE `tadmin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tadmin`
+-- Dump dei dati per la tabella `tadmin`
 --
 
 INSERT INTO `tadmin` (`idUtente`) VALUES
-(0);
+(1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tindirizzo`
+-- Struttura della tabella `tindirizzo`
 --
 
 CREATE TABLE `tindirizzo` (
@@ -54,17 +54,17 @@ CREATE TABLE `tindirizzo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tindirizzo`
+-- Dump dei dati per la tabella `tindirizzo`
 --
 
 INSERT INTO `tindirizzo` (`id`, `via`, `numeroCivico`, `CAP`, `citta`, `provincia`) VALUES
 (1, 'Antonio Abetti', '11', '34170', 'Gorizia', 'GO'),
-(2, 'a', '1', '34011', 'triester', 'at');
+(3, 'Via Giacinto Gallina', '2', '34122', 'Trieste', 'TS');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tingrediente`
+-- Struttura della tabella `tingrediente`
 --
 
 CREATE TABLE `tingrediente` (
@@ -73,7 +73,7 @@ CREATE TABLE `tingrediente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tingrediente`
+-- Dump dei dati per la tabella `tingrediente`
 --
 
 INSERT INTO `tingrediente` (`id`, `nome`) VALUES
@@ -102,7 +102,7 @@ INSERT INTO `tingrediente` (`id`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tmenu`
+-- Struttura della tabella `tmenu`
 --
 
 CREATE TABLE `tmenu` (
@@ -110,23 +110,21 @@ CREATE TABLE `tmenu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tmenu`
+-- Dump dei dati per la tabella `tmenu`
 --
 
 INSERT INTO `tmenu` (`idProdotto`) VALUES
-(20),
 (24),
 (25),
 (26),
-(27),
-(30),
-(32),
+(28),
+(31),
 (34);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tordine`
+-- Struttura della tabella `tordine`
 --
 
 CREATE TABLE `tordine` (
@@ -138,14 +136,14 @@ CREATE TABLE `tordine` (
   `totale` float NOT NULL,
   `idIndirizzo` int(11) NOT NULL,
   `data` timestamp NOT NULL DEFAULT current_timestamp(),
-  `accetato` tinyint(1) DEFAULT NULL,
+  `accettato` tinyint(1) DEFAULT NULL,
   `consegnato` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tprodotto`
+-- Struttura della tabella `tprodotto`
 --
 
 CREATE TABLE `tprodotto` (
@@ -155,7 +153,7 @@ CREATE TABLE `tprodotto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tprodotto`
+-- Dump dei dati per la tabella `tprodotto`
 --
 
 INSERT INTO `tprodotto` (`id`, `nome`, `prezzo`) VALUES
@@ -175,7 +173,7 @@ INSERT INTO `tprodotto` (`id`, `nome`, `prezzo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tricetta`
+-- Struttura della tabella `tricetta`
 --
 
 CREATE TABLE `tricetta` (
@@ -184,7 +182,7 @@ CREATE TABLE `tricetta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tricetta`
+-- Dump dei dati per la tabella `tricetta`
 --
 
 INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
@@ -264,7 +262,7 @@ INSERT INTO `tricetta` (`idIngrediente`, `idProdotto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tutente`
+-- Struttura della tabella `tutente`
 --
 
 CREATE TABLE `tutente` (
@@ -277,43 +275,43 @@ CREATE TABLE `tutente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tutente`
+-- Dump dei dati per la tabella `tutente`
 --
 
 INSERT INTO `tutente` (`idutente`, `nome`, `password`, `email`, `indirizzo`, `numeroTelefonico`) VALUES
-(3, 'Signor Appane', '$2y$10$XdAqyU9gruz0zDNALOAYVeQMO.XlYTvsFTCJw2lYc6sPvXnFWRSKi', 'admin@appane.it', NULL, NULL),
-(8, 'test', '$2y$10$qs2a8aAegyw/MXU1frumZOgsGum/4IlpwiwG679JZYgboHFqD9qHi', 'test@test.com', NULL, 0);
+(1, 'Signor Appane', '$2y$10$XdAqyU9gruz0zDNALOAYVeQMO.XlYTvsFTCJw2lYc6sPvXnFWRSKi', 'admin@appane.it', NULL, NULL),
+(9, 'cliente', '$2y$10$2QWSv5L4v/vCXeTebGWyVeQXX9gYB04t4I4zIaBd5ykIiPNyz0Vwq', 'cliente@appane.it', 3, 2147483647);
 
 --
--- Indexes for dumped tables
+-- Indici per le tabelle scaricate
 --
 
 --
--- Indexes for table `tadmin`
+-- Indici per le tabelle `tadmin`
 --
 ALTER TABLE `tadmin`
   ADD UNIQUE KEY `idutente` (`idUtente`);
 
 --
--- Indexes for table `tindirizzo`
+-- Indici per le tabelle `tindirizzo`
 --
 ALTER TABLE `tindirizzo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tingrediente`
+-- Indici per le tabelle `tingrediente`
 --
 ALTER TABLE `tingrediente`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tmenu`
+-- Indici per le tabelle `tmenu`
 --
 ALTER TABLE `tmenu`
   ADD UNIQUE KEY `idprodotto` (`idProdotto`);
 
 --
--- Indexes for table `tordine`
+-- Indici per le tabelle `tordine`
 --
 ALTER TABLE `tordine`
   ADD PRIMARY KEY (`idUtente`,`idProdotto`,`data`,`idIndirizzo`) USING BTREE,
@@ -321,21 +319,21 @@ ALTER TABLE `tordine`
   ADD KEY `idIndirizzo` (`idIndirizzo`);
 
 --
--- Indexes for table `tprodotto`
+-- Indici per le tabelle `tprodotto`
 --
 ALTER TABLE `tprodotto`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `unique_nome` (`nome`);
 
 --
--- Indexes for table `tricetta`
+-- Indici per le tabelle `tricetta`
 --
 ALTER TABLE `tricetta`
   ADD PRIMARY KEY (`idIngrediente`,`idProdotto`) USING BTREE,
   ADD KEY `idProdotto` (`idProdotto`);
 
 --
--- Indexes for table `tutente`
+-- Indici per le tabelle `tutente`
 --
 ALTER TABLE `tutente`
   ADD PRIMARY KEY (`idutente`),
@@ -343,53 +341,53 @@ ALTER TABLE `tutente`
   ADD KEY `fk_utente_indirizzo` (`indirizzo`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT per le tabelle scaricate
 --
 
 --
--- AUTO_INCREMENT for table `tindirizzo`
+-- AUTO_INCREMENT per la tabella `tindirizzo`
 --
 ALTER TABLE `tindirizzo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tingrediente`
+-- AUTO_INCREMENT per la tabella `tingrediente`
 --
 ALTER TABLE `tingrediente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT for table `tprodotto`
+-- AUTO_INCREMENT per la tabella `tprodotto`
 --
 ALTER TABLE `tprodotto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT for table `tutente`
+-- AUTO_INCREMENT per la tabella `tutente`
 --
 ALTER TABLE `tutente`
-  MODIFY `idutente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idutente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Constraints for dumped tables
+-- Limiti per le tabelle scaricate
 --
 
 --
--- Constraints for table `tadmin`
+-- Limiti per la tabella `tadmin`
 --
 ALTER TABLE `tadmin`
   ADD CONSTRAINT `FK_admin` FOREIGN KEY (`idUtente`) REFERENCES `tutente` (`idutente`),
   ADD CONSTRAINT `tadmin_ibfk_1` FOREIGN KEY (`idUtente`) REFERENCES `tutente` (`idutente`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tmenu`
+-- Limiti per la tabella `tmenu`
 --
 ALTER TABLE `tmenu`
   ADD CONSTRAINT `FK_menuprodotto` FOREIGN KEY (`idProdotto`) REFERENCES `tprodotto` (`id`),
   ADD CONSTRAINT `tmenu_ibfk_1` FOREIGN KEY (`idProdotto`) REFERENCES `tprodotto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tordine`
+-- Limiti per la tabella `tordine`
 --
 ALTER TABLE `tordine`
   ADD CONSTRAINT `tordine_ibfk_1` FOREIGN KEY (`idProdotto`) REFERENCES `tprodotto` (`id`) ON UPDATE CASCADE,
@@ -397,7 +395,7 @@ ALTER TABLE `tordine`
   ADD CONSTRAINT `tordine_ibfk_3` FOREIGN KEY (`idIndirizzo`) REFERENCES `tindirizzo` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `tricetta`
+-- Limiti per la tabella `tricetta`
 --
 ALTER TABLE `tricetta`
   ADD CONSTRAINT `fk_ingrediente` FOREIGN KEY (`idIngrediente`) REFERENCES `tingrediente` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -405,16 +403,16 @@ ALTER TABLE `tricetta`
   ADD CONSTRAINT `tricetta_ibfk_1` FOREIGN KEY (`idProdotto`) REFERENCES `tprodotto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tutente`
+-- Limiti per la tabella `tutente`
 --
 ALTER TABLE `tutente`
   ADD CONSTRAINT `fk_utente_indirizzo` FOREIGN KEY (`indirizzo`) REFERENCES `tindirizzo` (`id`);
 
 DELIMITER $$
 --
--- Events
+-- Eventi
 --
-CREATE DEFINER=`root`@`localhost` EVENT `delete_weekly_menu` ON SCHEDULE EVERY 1 WEEK STARTS '2026-03-21 00:00:00' ON COMPLETION PRESERVE ENABLE DO DELETE FROM tmenu$$
+CREATE EVENT `delete_weekly_menu` ON SCHEDULE EVERY 1 WEEK STARTS '2026-03-21 00:00:00' ON COMPLETION PRESERVE ENABLE DO DELETE FROM tmenu$$
 
 DELIMITER ;
 COMMIT;
