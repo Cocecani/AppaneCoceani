@@ -114,28 +114,6 @@ function creaProd($id, $nome, $ingredienti, $prezzo)
             } else {
                 echo '<p> Per ora non ci sono prodotti salvati </p>';
             }
-            
-
-            /*
-            $sql = "SELECT id, nome, prezzo, FROM tprodotto";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    $stmt = $conn->prepare("SELECT ingrediente FROM tricetta WHERE idProdotto = ?");
-                    $stmt->bind_param("i", $row["id"]);
-                    $stmt->execute();
-                    $resultI = $stmt->get_result();
-                    $ingredienti = [];
-                    while ($rowI = $resultI->fetch_assoc()) {
-                        $ingredienti[] = $rowI['ingrediente'];
-                    }
-                    echo creaProd($row["nome"], $ingredienti, $row["quantità"], $row["prezzo"]);
-                }
-            } else {
-                echo "non ci sono prodotti disponibili";
-            }
-*/
 
             ?>
         </div>

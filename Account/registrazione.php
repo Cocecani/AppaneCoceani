@@ -47,5 +47,4 @@ if ($result && $result->num_rows > 0) {
         redirect("/registrati.php?popup=fail");
     }
 }
-
 redirect("/registrati.php?popup=fail");

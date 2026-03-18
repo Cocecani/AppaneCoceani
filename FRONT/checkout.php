@@ -52,14 +52,15 @@ if (!$id_indirizzo) {
 }
 
 // INSERT one row per product
-$stmt = $conn->prepare("INSERT INTO tordine (idUtente, idProdotto, quantita, totale, idIndirizzo, data) VALUES (?, ?, ?, ?, ?, NOW())");
+$stmt = $conn->prepare("INSERT INTO tordine (idUtente, idProdotto, quantita, prezzo, totale, idIndirizzo, data) VALUES (?, ?, ?, ?, ?, ?, NOW())");
 
 foreach ($cart as $id => $item) {
-    $id_prod = (int)$id;
-    $qty     = (int)$item['quantity'];
-    $totale  = round($item['prezzo'] * $qty, 2);
+    $id_prod        = (int)$id;
+    $qty            = (int)$item['quantity'];
+    $prezzoUnitario = round((float)$item['prezzo'], 2);
+    $totale         = round($prezzoUnitario * $qty, 2);
 
-    $stmt->bind_param("iiidi", $user_id, $id_prod, $qty, $totale, $id_indirizzo);
+    $stmt->bind_param("iiiddi", $user_id, $id_prod, $qty, $prezzoUnitario, $totale, $id_indirizzo);
     $stmt->execute();
 }
 
