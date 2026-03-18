@@ -3,7 +3,18 @@ session_start();
 
 require __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../config.php';
-require_once __DIR__ . '/../includes/header.php';
+
+$stmt = $conn->prepare("SELECT idUtente FROM `tadmin` WHERE idUtente = ?");
+$stmt->bind_param("i", $_SESSION['user_id']);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 1) {
+    require_once __DIR__ . '/../BACK/header.php';
+} else {
+    require_once __DIR__ . '/../includes/header.php';
+}
+
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {
@@ -100,7 +111,7 @@ if ($user['indirizzo']) {
 
         </div>
 
-        <a href="<?= BASE_URL ?>/AppaneCoceani/Account/logout.php" class="btn logout-btn">Logout</a>
+        <a href="<?= BASE_URL ?>/Account/logout.php" class="btn logout-btn">Logout</a>
     </div>
 
 </body>

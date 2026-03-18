@@ -39,7 +39,7 @@
             $stmt = $conn->prepare($query);
 
             $totale=$newQuantity*$rowOrder["prezzo"];
-            $stmt->bind_param("iiii",$newQuantity, $totale, 
+            $stmt->bind_param("idii",$newQuantity, $totale, 
                                 $idUser,$rowOrder["idProdotto"] );
             $stmt->execute();
         }

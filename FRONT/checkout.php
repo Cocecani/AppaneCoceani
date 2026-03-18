@@ -25,14 +25,15 @@ $addr = $stmtAddr->get_result()->fetch_assoc();
 $id_indirizzo = $addr['indirizzo'] ?? null;
 
 // INSERT one row per product
-$stmt = $conn->prepare("INSERT INTO tordine (idUtente, idProdotto, quantita, totale, idIndirizzo, data) VALUES (?, ?, ?, ?, ?, NOW())");
+
 
 foreach ($cart as $id => $item) {
     $id_prod  = (int)$id;
     $qty      = (int)$item['quantity'];
-    $totale   = round($item['prezzo'] * $qty, 2);
-
-    $stmt->bind_param("iiidi", $user_id, $id_prod, $qty, $totale, $id_indirizzo);
+    $totale   = $item['prezzo'] * $qty;
+    $price=$item['prezzo'];
+    $stmt = $conn->prepare("INSERT INTO tordine (idUtente, idProdotto, prezzo, quantita, totale, idIndirizzo, data) VALUES (?,?, ?, ?, ?, ?, NOW())");
+    $stmt->bind_param("iididi", $user_id, $id_prod,$price, $qty, $totale, $id_indirizzo);
     $stmt->execute();
 }
 

@@ -9,7 +9,14 @@
         ?>
         <a  href="<?php echo isset($_SESSION['user_id']) ? '../../Account/profile.php' : '../Account/login.php'; ?>" 
         class="button" style="margin-right: 10px;">
-            <img src="../../grafica/img/user.png" alt="user" class="header-icon">
+            <?php
+                if(file_exists("../../grafica/img/user.png")){
+                    echo  "<img src='../../grafica/img/user.png' alt='user' class='header-icon'>";
+                }else{
+                    echo  "<img src='../grafica/img/user.png' alt='user' class='header-icon'>";
+                }
+                
+            ?>
         </a>
 
     </div>
@@ -18,11 +25,19 @@
 </div>
 
 <div class="options">
-    <a  href="../managementProducts/managementProducts.php" class="menu-option">Prodotti</a>
-    <a  href="../managementIngredients/managementIngredients.php" class="menu-option">Ingredienti</a>
-    <a  href="../managementWeeklyMenu/managementWeeklyMenu.php" class="menu-option">Menu Settimanale</a>
-    <a  href="../managementOrders/managementOrdersArrived.php" class="menu-option">Ordini Arrivati</a>
-    <a  href="../managementOrders/managementOrdersAccepted.php" class="menu-option">Ordini Accettati</a>
-    <a  href="../managementUsers/managementUsers.php" class="menu-option">Utenti</a>
-    <a  href="../managementSummary/managementSummary.php" class="menu-option">Riepilogo</a>
+    <?php
+        $partUrl="";
+        if(file_exists("../managementProducts/managementProducts.php")){
+            $partUrl="../";
+        }else{
+            $partUrl="../BACK/";
+        }          
+    ?>
+    <a  href="<?php echo $partUrl; ?>managementProducts/managementProducts.php" class="menu-option">Prodotti</a>
+    <a  href="<?php echo $partUrl; ?>managementIngredients/managementIngredients.php" class="menu-option">Ingredienti</a>
+    <a  href="<?php echo $partUrl; ?>managementWeeklyMenu/managementWeeklyMenu.php" class="menu-option">Menu Settimanale</a>
+    <a  href="<?php echo $partUrl; ?>managementOrders/managementOrdersArrived.php" class="menu-option">Ordini Arrivati</a>
+    <a  href="<?php echo $partUrl; ?>managementOrders/managementOrdersAccepted.php" class="menu-option">Ordini Accettati</a>
+    <a  href="<?php echo $partUrl; ?>managementUsers/managementUsers.php" class="menu-option">Utenti</a>
+    <a  href="<?php echo $partUrl; ?>managementSummary/managementSummary.php" class="menu-option">Riepilogo</a>
 </div>

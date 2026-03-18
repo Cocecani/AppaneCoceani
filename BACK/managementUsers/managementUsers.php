@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 require('../../includes/db.php');
 include('../header.php');
@@ -98,7 +97,7 @@ function createAddress($address, $number, $cap, $city, $province)
 
     </div>
 
-    <script src="../managementProducts.js?v=<?php echo time();?>"></script>
+    
 </body>
 
 </html>

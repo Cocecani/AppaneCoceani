@@ -3,7 +3,7 @@ session_start();
 
 require __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../config.php';
-require_once __DIR__ . '/../includes/header.php';
+require_once __DIR__ . '/../includes/utils.php';
 
 
 // Reindirizza al login se non loggato
@@ -29,7 +29,7 @@ $stmt_check->execute();
 $result_check = $stmt_check->get_result();
 
 if ($result_check->num_rows > 0) {
-    redirect("/Account/edit-profile.php?popup=emailExists");
+    redirect("edit-profile.php?popup=emailExists");
 }
 
 // Aggiorna i dati
@@ -41,7 +41,7 @@ if ($stmt_update->execute()) {
     // Aggiorna la sessione
     $_SESSION['nome'] = $nome;
     $_SESSION['email'] = $email;
-    redirect("/Account/profile.php?popup=success");
+    redirect("profile.php?popup=success");
 } else {
-    redirect("/Account/edit-profile.php?popup=fail");
+    redirect("edit-profile.php?popup=fail");
 }

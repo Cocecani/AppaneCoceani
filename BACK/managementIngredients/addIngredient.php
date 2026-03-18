@@ -1,14 +1,8 @@
 <?php 
-
     require('../../includes/db.php');
     require('../../includes/utils.php');
 
     $name=$_REQUEST["nameIngredient"];
-
-    /*echo $name."<br>";
-    echo $price."<br>";
-    print_r($ingredients);*/
-    
 
     $stmtProd = $conn->prepare("SELECT nome FROM tingrediente WHERE nome LIKE ?");
     $stmtProd->bind_param("s", $name);

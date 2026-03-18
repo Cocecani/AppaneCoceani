@@ -44,7 +44,7 @@ $popup = $_GET['popup'] ?? null;
                 break;
         }
         ?>
-        <form action="/Account/update-profile.php" method="post">
+        <form action="update-profile.php" method="post">
             <h1>Modifica Profilo</h1>
 
             <label>Nome</label>
