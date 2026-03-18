@@ -15,11 +15,8 @@
     $stmtProd->execute();
 
     $resultProd = $stmtProd->get_result();
-    if ($resultProd->num_rows > 0) {
-        /*echo $resultProd->num_rows."<br>";
-        echo $resultProd->fetch_assoc()["nome"];*/
-        echo "<script>alert('Prodotto con questo nome già esiste')</script>"; 
-    }else{
+    if ($resultProd->num_rows === 0) {
+        
         $stmt= $conn->prepare("INSERT INTO `tingrediente`(`nome`) VALUES (?)");
         $stmt->bind_param("s", $name);
         $stmt->execute();
