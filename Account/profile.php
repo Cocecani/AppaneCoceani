@@ -7,7 +7,7 @@ require_once __DIR__ . '/../includes/header.php';
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {
-    redirect("/Account/login.php");
+     redirect(BASE_URL . "/AppaneCoceani/Account/login.php");
 }
 
 $user_id = $_SESSION['user_id'];
@@ -21,7 +21,7 @@ $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
 if (!$user) {
-    redirect('/index.php');
+     redirect(BASE_URL . "/AppaneCoceani/index.php");
 }
 
 // Prendi i dati dell'indirizzo se esiste

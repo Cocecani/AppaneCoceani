@@ -2,13 +2,13 @@
 session_start();
 
 require __DIR__ . '/../includes/db.php';
+require __DIR__ . '/../includes/utils.php';
 require_once __DIR__ . '/../config.php';
-require_once __DIR__ . '/../includes/header.php';
 
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {
-    redirect("/Account/login.php");
+    redirect(BASE_URL . "/AppaneCoceani/Account/login.php");
 }
 
 $user_id = $_SESSION['user_id'];
@@ -20,7 +20,7 @@ $provincia = trim($_POST['provincia'] ?? '');
 
 // Validazione
 if (empty($via) || empty($numeroCivico) || empty($CAP) || empty($citta) || empty($provincia)) {
-    redirect("/Account/edit-address.php?popup=fail");
+    redirect(BASE_URL . "/AppaneCoceani/Account/edit-address.php?popup=fail");
 }
 
 // Prendi l'indirizzo corrente dell'utente
@@ -39,7 +39,7 @@ if ($user['indirizzo']) {
 
     
     if (!$stmt_update->execute()) {
-        redirect("/Account/edit-address.php?popup=fail");
+        redirect(BASE_URL . "/AppaneCoceani/Account/edit-address.php?popup=fail");
     }
 } else {
     // INSERT nuovo indirizzo
@@ -56,11 +56,11 @@ if ($user['indirizzo']) {
         $stmt_link->bind_param("ii", $address_id, $user_id);
         
         if (!$stmt_link->execute()) {
-            redirect("/Account/edit-address.php?popup=fail");
+            redirect(BASE_URL . "/AppaneCoceani/Account/edit-address.php?popup=fail");
         }
     } else {
-        redirect("/Account/edit-address.php?popup=fail");
+        redirect(BASE_URL . "/AppaneCoceani/Account/edit-address.php?popup=fail");
     }
 }
 
-redirect("/Account/profile.php?popup=success");
+redirect(BASE_URL . "/AppaneCoceani/Account/profile.php?popup=success");
