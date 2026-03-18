@@ -211,6 +211,38 @@ body {
   width: 30%;
 }
 
+
+/*===REIPILOGO===*/
+.periodForm{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+}
+
+.periodForm div{
+  flex:1;
+}
+
+.summaryBox{
+  flex-direction:column;
+}
+
+.summaryRow{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:2px solid white;
+  padding:10px 0;
+}
+
+.total{
+  border-bottom:none;
+  font-size:22px;
+}
+
 /*===COUNTER(+/-)===*/
 
 .counter {
