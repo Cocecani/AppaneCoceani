@@ -67,7 +67,8 @@ if ($user_id) {
                     </button>
                     <button type="button" class="cart-btn"
                         style="width:auto; border-radius:20px; padding:10px 25px;"
-                        onclick="submitCart();">
+                        onclick="applyOverride(); submitCart();"
+>
                         Conferma ordine
                     </button>
                 </div>
@@ -77,9 +78,6 @@ if ($user_id) {
         <!-- RIGHT: Address Sidebar -->
 <div class="address-sidebar">
     <h3>📍 Indirizzo di Consegna</h3>
-    <p style="font-size:0.85rem; color:#888;">
-        <?php echo $address ? 'Modifica l\'indirizzo solo per questo ordine:' : 'Inserisci un indirizzo di consegna:'; ?>
-    </p>
 
     <div class="address-override">
         <input type="text" id="input-via" placeholder="Via"
@@ -97,6 +95,9 @@ if ($user_id) {
         </button>
         
     </div>
+    <p style="font-size:0.85rem; color:#888;">
+        ⚠️ Confermare sempre l'indirizzo prima di confermare l'ordine!
+    </p>
 </div>
 
 
