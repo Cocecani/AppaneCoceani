@@ -67,7 +67,7 @@ if ($user_id) {
                     </button>
                     <button type="button" class="cart-btn"
                         style="width:auto; border-radius:20px; padding:10px 25px;"
-                        onclick="applyOverride(); submitCart();"
+                        onclick="submitCart();"
 >
                         Conferma ordine
                     </button>
