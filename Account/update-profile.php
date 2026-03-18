@@ -2,13 +2,14 @@
 session_start();
 
 require __DIR__ . '/../includes/db.php';
+require __DIR__ . '/../includes/utils.php';
 require_once __DIR__ . '/../config.php';
-require_once __DIR__ . '/../includes/utils.php';
+require_once __DIR__ . '/../includes/header.php';
 
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {
-    redirect("/Account/login.php");
+    redirect(BASE_URL . "/AppaneCoceani/Account/login.php");
 }
 
 $user_id = $_SESSION['user_id'];
@@ -18,7 +19,7 @@ $numeroTelefonico = trim($_POST['numeroTelefonico'] ?? '');
 
 // Validazione
 if (empty($nome) || empty($email)) {
-    redirect("/Account/edit-profile.php?popup=fail");
+    redirect(BASE_URL . "/AppaneCoceani/Account/edit-profile.php?popup=fail");
 }
 
 // Controlla se la nuova email esiste già (escludendo l'utente corrente)
@@ -29,7 +30,7 @@ $stmt_check->execute();
 $result_check = $stmt_check->get_result();
 
 if ($result_check->num_rows > 0) {
-    redirect("edit-profile.php?popup=emailExists");
+    redirect(BASE_URL . "/AppaneCoceani/Account/edit-profile.php?popup=emailExists");
 }
 
 // Aggiorna i dati
@@ -41,7 +42,7 @@ if ($stmt_update->execute()) {
     // Aggiorna la sessione
     $_SESSION['nome'] = $nome;
     $_SESSION['email'] = $email;
-    redirect("profile.php?popup=success");
+    redirect(BASE_URL . "/AppaneCoceani/Account/profile.php?popup=success");
 } else {
-    redirect("edit-profile.php?popup=fail");
+    redirect(BASE_URL . "/AppaneCoceani/Account/edit-profile.php?popup=fail");
 }

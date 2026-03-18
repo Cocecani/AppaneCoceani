@@ -211,38 +211,7 @@ body {
   width: 30%;
 }
 
-/*===RIEPILOGO===*/
-
-.periodForm{
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:30px;
-}
-
-.periodForm div{
-  flex:1;
-}
-
-.summaryBox{
-  flex-direction:column;
-}
-
-.summaryRow{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:2px solid white;
-  padding:10px 0;
-}
-
-.total{
-  border-bottom:none;
-  font-size:22px;
-}
-
-/*===COUNTER===*/
+/*===COUNTER(+/-)===*/
 
 .counter {
   display: flex;
@@ -374,3 +343,145 @@ body {
   
   
 }
+
+/*===PROFILE===*/
+
+.profile-container {
+    width: 60%;
+    margin: 40px auto;
+}
+
+.profile-container h1 {
+    text-align: center;
+    color: #e4788e;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.profile-section {
+    background-color: #fabfc1;
+    border-radius: 15px;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+.profile-section h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid rgba(255,255,255,0.4);
+    padding-bottom: 8px;
+}
+
+.profile-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.profile-item:last-of-type {
+    border-bottom: none;
+    margin-bottom: 15px;
+}
+
+.profile-item label {
+    font-size: 0.9rem;
+    opacity: 0.85;
+}
+
+.profile-item span {
+    font-size: 0.95rem;
+}
+
+.logout-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    background-color: #c0392b;
+}
+
+.logout-btn:hover {
+    background-color: #a93226;
+}
+
+@media (max-width: 768px) {
+    .profile-container { width: 90%; }
+}
+
+
+
+/*===CART===*/
+
+.cart-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.cart-main { flex: 2; }
+
+/*===ADDRESS SIDEBAR===*/
+
+.address-sidebar {
+    flex: 1;
+    background: #fff0f3;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid #e4788e;
+    position: sticky;
+    top: 20px;
+}
+
+.address-sidebar h3 {
+    color: #e4788e;
+    margin-bottom: 15px;
+}
+
+.address-override {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.address-override input {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid #e4788e;
+    font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.address-override button {
+    background: #e4788e;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+}
+
+.address-override button:hover { background: #ce6b7f; }
+
+#address-confirm-msg {
+    color: green;
+    font-size: 0.85rem;
+    display: none;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .cart-wrapper { flex-direction: column; }
+    .address-sidebar { position: static; }
+}
+

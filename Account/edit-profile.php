@@ -1,13 +1,14 @@
 <?php
 session_start();
 require __DIR__ . '/../includes/db.php';
+require __DIR__ . '/../includes/utils.php';
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../includes/header.php';
 
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {
-    redirect("/Account/login.php");
+    redirect(BASE_URL . "/AppaneCoceani/Account/login.php");
 }
 
 $user_id = $_SESSION['user_id'];
@@ -30,9 +31,6 @@ $popup = $_GET['popup'] ?? null;
     <link rel="stylesheet" href="../grafica/stylelogin.css">
 </head>
 <body>
-    <div class="topbar">
-        <h1>Appane</h1>
-    </div>
     <div class="main-content">
         <?php
         switch ($popup) {
@@ -44,7 +42,7 @@ $popup = $_GET['popup'] ?? null;
                 break;
         }
         ?>
-        <form action="update-profile.php" method="post">
+        <form action="<?= BASE_URL ?>/AppaneCoceani/Account/update-profile.php" method="post">
             <h1>Modifica Profilo</h1>
 
             <label>Nome</label>

@@ -18,7 +18,7 @@ if ($result->num_rows === 1) {
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {
-    redirect("/Account/login.php");
+     redirect(BASE_URL . "/AppaneCoceani/Account/login.php");
 }
 
 $user_id = $_SESSION['user_id'];
@@ -32,7 +32,7 @@ $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
 if (!$user) {
-    redirect('/index.php');
+     redirect(BASE_URL . "/AppaneCoceani/index.php");
 }
 
 // Prendi i dati dell'indirizzo se esiste
@@ -111,7 +111,7 @@ if ($user['indirizzo']) {
 
         </div>
 
-        <a href="<?= BASE_URL ?>/Account/logout.php" class="btn logout-btn">Logout</a>
+        <a href="<?= BASE_URL ?>/AppaneCoceani/Account/logout.php" class="btn logout-btn">Logout</a>
     </div>
 
 </body>
