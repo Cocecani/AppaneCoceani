@@ -1,5 +1,5 @@
 <div class="topbar">
-    <h1><a href="index.php" style="color: inherit; text-decoration: none;">Appane</a></h1>
+    <h1>Appane</h1>
     <div style="margin: auto 0;">
         <?php
             if (isset($_SESSION['user_id'])) {
@@ -7,7 +7,7 @@
                 //echo "<a href='/FRONT/logout.php' class='button' style='margin-right: 10px;'>Logout</a>";
             }
         ?>
-        <a  href="<?php echo isset($_SESSION['user_id']) ? '../../Account/profile.php' : '../Account/login.php'; ?>" 
+        <a  href="<?php echo isset($_SESSION['user_id']) ? '../../Account/profile.php' : '../../Account/login.php'; ?>" 
         class="button" style="margin-right: 10px;">
             <?php
                 if(file_exists("../../grafica/img/user.png")){
