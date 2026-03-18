@@ -7,7 +7,7 @@ require_once __DIR__ . '/../includes/header.php';
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {
-    redirect("/FRONT/login.php");
+    redirect("/Account/login.php");
 }
 
 $user_id = $_SESSION['user_id'];
@@ -44,7 +44,7 @@ $popup = $_GET['popup'] ?? null;
                 break;
         }
         ?>
-        <form action="/FRONT/update-profile.php" method="post">
+        <form action="/Account/update-profile.php" method="post">
             <h1>Modifica Profilo</h1>
 
             <label>Nome</label>

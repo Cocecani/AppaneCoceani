@@ -7,7 +7,7 @@ require_once __DIR__ . '/../includes/header.php';
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {
-    redirect("/FRONT/login.php");
+    redirect("/Account/login.php");
 }
 
 $user_id = $_SESSION['user_id'];

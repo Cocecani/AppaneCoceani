@@ -8,7 +8,7 @@ require_once __DIR__ . '/../includes/header.php';
 
 // Reindirizza al login se non loggato
 if (!isset($_SESSION['user_id'])) {
-    redirect("/FRONT/login.php");
+    redirect("/Account/login.php");
 }
 
 $user_id = $_SESSION['user_id'];
@@ -18,7 +18,7 @@ $numeroTelefonico = trim($_POST['numeroTelefonico'] ?? '');
 
 // Validazione
 if (empty($nome) || empty($email)) {
-    redirect("/FRONT/edit-profile.php?popup=fail");
+    redirect("/Account/edit-profile.php?popup=fail");
 }
 
 // Controlla se la nuova email esiste già (escludendo l'utente corrente)
@@ -29,7 +29,7 @@ $stmt_check->execute();
 $result_check = $stmt_check->get_result();
 
 if ($result_check->num_rows > 0) {
-    redirect("/FRONT/edit-profile.php?popup=emailExists");
+    redirect("/Account/edit-profile.php?popup=emailExists");
 }
 
 // Aggiorna i dati
@@ -41,7 +41,7 @@ if ($stmt_update->execute()) {
     // Aggiorna la sessione
     $_SESSION['nome'] = $nome;
     $_SESSION['email'] = $email;
-    redirect("/FRONT/profile.php?popup=success");
+    redirect("/Account/profile.php?popup=success");
 } else {
-    redirect("/FRONT/edit-profile.php?popup=fail");
+    redirect("/Account/edit-profile.php?popup=fail");
 }

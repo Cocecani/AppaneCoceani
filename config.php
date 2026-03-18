@@ -8,5 +8,7 @@ $script   = $_SERVER['SCRIPT_NAME'];
 $depth    = substr_count(dirname($script), '/') - 1;
 $base     = implode('/', array_slice(explode('/', $script), 0, 2));
 
-define('BASE_URL', $protocol . '://' . $host . $base);
+define('BASE_URL', $protocol . '://' . $host . $base . '/coceani');
+
+//aggiungere " . '/coceani'" quando a scuola, altrimenti togliere
 ?>
