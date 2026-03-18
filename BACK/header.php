@@ -1,5 +1,17 @@
 <div class="topbar">
-    <h1>Appane</h1>
+    <h1>
+        <?php
+            if(file_exists("../managementProducts/managementProducts.php")){
+                echo "<a href='../managementProducts/managementProducts.php' ";
+            }else{
+                echo "<a href='../BACK/managementProducts/managementProducts.php'n";
+            }      
+            echo "style='color: inherit; text-decoration: none;'>Appane</a>" ;   
+        ?>
+        
+    </h1>
+
+
     <div style="margin: auto 0;">
         <?php
             if (isset($_SESSION['user_id'])) {
@@ -7,7 +19,14 @@
                 //echo "<a href='/FRONT/logout.php' class='button' style='margin-right: 10px;'>Logout</a>";
             }
         ?>
-        <a  href="<?php echo isset($_SESSION['user_id']) ? '../../Account/profile.php' : '../../Account/login.php'; ?>" 
+        <a  href="<?php
+            if(file_exists("../../Account/profile.php")){
+                echo "../../Account/profile.php";
+            }else{
+                echo "profile.php";
+            }   
+        ?>" 
+
         class="button" style="margin-right: 10px;">
             <?php
                 if(file_exists("../../grafica/img/user.png")){
