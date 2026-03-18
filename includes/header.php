@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="../grafica/style.css">
 </head>
 <div class="topbar">
-    <h1><a href="<?= BASE_URL ?>/index.php" style="color: inherit; text-decoration: none;">Appane</a></h1>
+    <h1><a href="<?= BASE_URL ?>/AppaneCoceani/index.php" style="color: inherit; text-decoration: none;">Appane</a></h1>
     <div style="margin: auto 0;">
         <?php
         if (isset($_SESSION['user_id'])) {
