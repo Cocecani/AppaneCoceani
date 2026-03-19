@@ -66,4 +66,3 @@ foreach ($cart as $id => $item) {
 
 redirect(BASE_URL . '/AppaneCoceani/index.php?popup=orderSuccess');
 ?>
-W

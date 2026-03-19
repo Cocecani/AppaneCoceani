@@ -24,7 +24,7 @@ function addToCart(id, nome, prezzo, ingredienti) {
     let cart = getCart();
     cart[id] = { nome, prezzo, ingredienti, quantity };
     saveCart(cart);
-    alert(`"${nome}" aggiunto al carrello!`);
+    //alert(`"${nome}" aggiunto al carrello!`);
 }
 
 function removeFromCart(id) {
@@ -40,6 +40,4 @@ function clearCart() {
 function submitCart() {
     document.getElementById('cart-data').value = JSON.stringify(getCart());
     document.getElementById('cart-form').submit();
-
-    clearCart();
 }
